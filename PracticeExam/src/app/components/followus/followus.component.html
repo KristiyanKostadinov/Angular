@@ -1,0 +1,96 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css"
+      integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous"/>
+<section>
+  <div class="container mt-2">
+    <div class="row d-flex justify-content-center align-items-center ">
+      <div>
+        <div>
+          <div>
+            <div class="row justify-content-center">
+              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+                <div class="form-control bgImg">
+                  <p class="text-center h3 mb-5 mt-3" style="color: #3D4040">Follow Us</p>
+                  <form class="mx-1 mx-md-4 mb-4" #followForm="ngForm" [formGroup]="followUsForm">
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <i class=" fas fa-user fa-lg me-3 fa-fw"></i>
+                      <label class="me-5" for="gender">Title* </label>
+                      <div class="d-flex justify-content-center">
+                        <select class="form-control w-auto me-2" name="gender" id="gender"
+                                formControlName="title">
+                          <option *ngFor="let titleCh of titles" [ngValue]="titleCh">{{titleCh}}</option>
+                        </select>
+                      </div>
+                      <small class="mat-error" *ngIf="title.touched && title.invalid">Please select a
+                        title!</small>
+                    </div>
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fas fa-address-card  fa-lg me-3 fa-fw"></i>
+                      <div class="form-outline flex-fill mb-0">
+                        <label class="form-label me-4" for="name">Your Last Name*</label>
+                        <small class="mat-error" *ngIf="name.touched && name.invalid">Last name must be
+                          between 5-35 letters. </small>
+                        <input type="text" class="form-control " id="name" name="name" placeholder="Last Name"
+                               formControlName="name"/>
+                      </div>
+                    </div>
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                      <div class="form-outline flex-fill mb-0">
+                        <label class="form-label me-5" for="email">Your Email*</label>
+                        <small class="mat-error" *ngIf="email.invalid && email.touched">Please enter valid
+                          email! ex: asd@asd.com</small>
+                        <input type="email" id="email" name="email" placeholder="Email" class="form-control"
+                               formControlName="email"/>
+                      </div>
+                    </div>
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fas fa-map-marker-alt fa-lg me-3 fa-fw"></i>
+                      <label class="me-4" for="country">Country*</label>
+                      <div class="d-flex justify-content-center">
+                        <select name="country" class="form-control w-auto me-2" id="country"
+                                formControlName="country">
+                          <option hidden></option>
+                          <option *ngFor="let region of regions" [value]="region.key">{{region.label}}</option>
+                        </select>
+                      </div>
+                      <small class="mat-error" *ngIf="country.invalid && country.touched">Please select a
+                        country!</small>
+                    </div>
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fas fa-bell fa-lg me-3 fa-fw"></i>
+                      <div class="form-outline flex-fill mb-0">
+                        <label class="form-label" for="email">Notification Frequency</label>
+                        <div *ngFor="let notification of notifications">
+                          <input class="form-check-input me-2" type="radio" name="notification_frequency"
+                                 [value]="notification.key" formControlName="notification_frequency"> {{notification.label}}
+                        </div>
+                      </div>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                      <input class="form-check-input me-2" type="checkbox" id="t_and_c" name="t_and_c"
+                             formControlName="t_and_c" #t_and_c/>
+                      <label class="form-check-label" for="t_and_c">
+                        I agree all statements in Terms of service*
+                      </label>
+                    </div>
+                    <small class="mat-error d-flex justify-content-center" *ngIf="!t_and_c.checked && terms.touched">Please
+                      agree to the terms!</small>
+                    <div class="d-flex justify-content-center mt-4">
+                      <button class="btn btn-primary btn-lg me-5" type="submit"
+                              [disabled]="followUsForm.invalid || !t_and_c.checked"
+                              (click)="onCreateFollower(followForm.value)">Submit
+                      </button>
+                      <button class="btn btn-danger btn-lg me-5" (click)="reset()">Reset</button>
+                       <!--<button class="btn btn-danger btn-lg  marginLeft2" type="delete" (click)="deleteRequest()">Delete
+                       </button>-->
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

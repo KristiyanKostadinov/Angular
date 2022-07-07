@@ -1,0 +1,67 @@
+<div class="container mt-3 mb-4">
+  <h2 class="d-flex justify-content-center marginTop marginBottom" *ngIf="isFetching; else content" style="color:red">
+    Loading...</h2>
+  <ng-template #content>
+    <h2 class="d-flex justify-content-center marginTop marginBottom" *ngIf="followers.length === 0; else container"
+        style="color:red">No available followers</h2>
+    <ng-template #container>
+      <div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="user-dashboard-info-box table-responsive mb-5 mt-5 bg-white p-4 shadow-sm">
+              <table class="table">
+                <thead>
+                <tr>
+                  <th>Followers</th>
+                  <th class="text-center">Notification Frequency</th>
+                  <th class="text-center">Terms & Conditions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="candidates-list" *ngFor="let follower of followers">
+                  <td class="title">
+                    <div class="thumb">
+                      <img class="img-fluid"
+                           src="https://cdn1.iconfinder.com/data/icons/user-pictures/101/malecostume-512.png"
+                           *ngIf="follower.title==='Mr.'" alt="male">
+                      <img class="img-fluid"
+                           src="https://cdn2.iconfinder.com/data/icons/avatars-60/5985/15-Actress-512.png"
+                           *ngIf="follower.title==='Ms.'" alt="female">
+                    </div>
+                    <div class="candidate-list-details">
+                      <div>
+                        <div>
+                          <h5> {{follower.title}} {{follower.name}}</h5>
+                        </div>
+                        <div>
+                          <ul class="list-unstyled">
+                            <li><i class="fas fa-envelope me-1"></i>{{follower.email}}</li>
+                            <li class="text-uppercase">
+                              <i class="fas fa-map-marker-alt me-1"></i>{{follower.country}}
+                            </li>
+                          </ul>
+                          <div>
+                            <p class="flag flag-{{follower.country}}"></p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="text-center">
+                    <span class="text-capitalize">{{follower.notification_frequency}}</span>
+                    <span *ngIf="follower.notification_frequency === ''">None</span>
+                  </td>
+                  <td class="text-center">
+                    <i class="fas fa-check" *ngIf="follower.t_and_c"></i>
+                    <i class="fas fa-minus-circle" *ngIf="!follower.t_and_c"></i>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </ng-template>
+</div>

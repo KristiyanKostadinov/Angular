@@ -1,0 +1,40 @@
+.creative{
+  background-color: orangered;
+  text-align: center;
+  font-size: x-large;
+  color: white;
+  padding-bottom: 3px;
+}
+
+.img_item{
+  width: 250px;
+  height: 200px;
+  border: 3px solid #ccc;
+  background: #eee;
+  padding: 10px 10px;
+}
+
+.ml-100px{
+  margin-left: 100px;
+}
+
+.ml-96px{
+  margin-left: 96px;
+}
+
+.orangeRed{
+  color: orangered;
+}
+
+.img-with-text {
+  text-align: center;
+  width: 250px;
+}
+
+.marginLeft{
+  margin-left: 30px;
+}
+
+.paddingLeft{
+  padding-left: 30px;
+}

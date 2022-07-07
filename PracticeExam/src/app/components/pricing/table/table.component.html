@@ -1,0 +1,51 @@
+<section>
+  <div class="container">
+  <h4 class="blueTxt mt-4 mb">Energy Expenditures for Each Region <br> (millions of dollars)</h4>
+  <br>
+  <table class="table mb-5">
+    <tr>
+      <th class="bgColor" rowspan="4" colspan="2"></th>
+      <th class="centerTxt bgColor" colspan="2">Type</th>
+    </tr>
+    <tr>
+      <th class="centerTxt bgColor">Residential Customers</th>
+      <th class="centerTxt bgColor">Business Customers</th>
+    </tr>
+    <tr>
+      <th class="centerTxt bgColor">Expenditures</th>
+      <th class="centerTxt bgColor">Expenditures</th>
+    </tr>
+    <tr>
+      <th class="centerTxt bgColor">Sum</th>
+      <th class="centerTxt bgColor">Sum</th>
+    </tr>
+    <tr>
+      <td class="blueTxt bgColor">Region</td>
+      <td class="blueTxt bgColor">Devision</td>
+      <td rowspan="2" class="diagonalData">{{price?.northeast?.new_england?.rc_sum}}</td>
+      <td rowspan="2" class="diagonalData">{{price?.northeast?.new_england?.bc_sum}}</td>
+    </tr>
+    <tr>
+      <td rowspan="2" class="blueTxt bgColor">Northeast</td>
+      <td class="blueTxt bgColor">New England</td>
+    </tr>
+    <tr>
+      <td class="blueTxt bgColor">Middle Atlantic</td>
+      <td class="diagonalData">{{price?.northeast?.middle_atlantic?.rc_sum}}</td>
+      <td class="diagonalData">{{price?.northeast?.middle_atlantic?.bc_sum}}</td>
+    </tr>
+    <tr>
+      <td rowspan="2" class="blueTxt bgColor">West</td>
+      <td class="blueTxt bgColor">Mountain</td>
+      <td class="diagonalData">{{price?.west?.mountain?.rc_sum}}</td>
+      <td class="diagonalData">{{price?.west?.mountain?.bc_sum}}</td>
+    </tr>
+    <tr>
+      <td class="blueTxt bgColor">Pacific</td>
+      <td class="diagonalData">{{price?.west?.pacific?.rc_sum}}</td>
+      <td class="diagonalData">{{price?.west?.pacific?.bc_sum}}</td>
+    </tr>
+  </table>
+  </div>
+</section>
+

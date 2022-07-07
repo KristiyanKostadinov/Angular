@@ -1,0 +1,19 @@
+<div class="sliderSection">
+  <h4 class="mt-3">Clean and Beautiful Website Template</h4>
+  <div class="images">
+    <div class="forZoom" [ngClass]="{zoom: images[robotKey]}">
+    </div>
+    <div class="forZoom" [ngClass]="{zoom: images[weddingKey]}">
+    </div>
+    <div class="forZoom" [ngClass]="{zoom: images[fredricksonKey]}">
+    </div>
+    <div class="forZoom" [ngClass]="{zoom: images[shrekKey]}">
+    </div>
+  </div>
+  <ol>
+    <li class="dot" [ngClass]="{active: images[robotKey]}" (click)="selectImage(robotKey)"></li>
+    <li class="dot" [ngClass]="{active: images[weddingKey]}" (click)="selectImage(weddingKey); "></li>
+    <li class="dot" [ngClass]="{active: images[fredricksonKey]}" (click)="selectImage(fredricksonKey); "></li>
+    <li class="dot" [ngClass]="{active: images[shrekKey]}" (click)="selectImage(shrekKey); "></li>
+  </ol>
+</div>

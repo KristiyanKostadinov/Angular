@@ -1,0 +1,32 @@
+.bubble {
+  font-family: sans-serif;
+  font-size: 15px;
+  width: 360px;
+  padding: 25px;
+  background: #484848	;
+  text-align: center;
+  color: white;
+}
+
+.obama{
+  margin-bottom: 0px;
+  text-align: right;
+  font-style: italic;
+  font-size: small;
+}
+
+.arrow {
+  background-color: orangered;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin: 0.2rem;
+}
+
+.ml-3{
+  margin-left:3rem;
+}
+
+.ml-5{
+  margin-left:5rem;
+}

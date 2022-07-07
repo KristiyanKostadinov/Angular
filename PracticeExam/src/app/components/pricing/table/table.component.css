@@ -1,0 +1,30 @@
+.blueTxt{
+  color: #00008B;
+}
+
+.bgColor{
+  background-color: #EDFDFF;
+}
+
+table {
+  width: 70%;
+  margin: auto;
+}
+
+.centerTxt{
+  text-align: center;
+  color: #00008B;
+}
+
+.diagonalData{
+  text-align: right;
+}
+
+td, th {
+  border: 2px solid #dddddd;
+  padding: 8px;
+}
+
+h4{
+  text-align: center;
+}

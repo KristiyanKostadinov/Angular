@@ -1,0 +1,57 @@
+ol li {
+  margin-right: 15px;
+  background: #888;
+  border-radius: 50%;
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  cursor: pointer;
+}
+
+h4 {
+  font-style: italic;
+  color: beige;
+}
+
+.sliderSection {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  background-image: url("src/assets/bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.forZoom {
+  background-image: url("/assets/robot.jpg");
+  display: inline-block;
+  width: 120px;
+  height: 120px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  border: 2px solid white;
+  margin: 1rem;
+}
+
+.forZoom:nth-child(2) {
+  background-image: url("/assets/wedding.jpg");
+}
+
+.forZoom:nth-child(3) {
+  background-image: url("/assets/fredrickson.jpg");
+}
+
+.forZoom:nth-child(4) {
+  background-image: url("/assets/shrek.jfif");
+}
+
+.zoom {
+  zoom: 1.2;
+}
+
+.dot.active,
+.dot:hover {
+  background: #008FFF;
+}
