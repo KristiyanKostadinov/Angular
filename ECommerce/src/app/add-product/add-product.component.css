@@ -1,0 +1,12 @@
+textarea {
+    width: 200px;
+    height: 100px;
+}
+
+.width {
+    width: 200px;
+}
+
+img{
+    max-width:100%;
+}

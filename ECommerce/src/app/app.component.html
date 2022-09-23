@@ -1,0 +1,51 @@
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
+    <div class="container">
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">{{title}}</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" [routerLink]="['/welcome']" routerLinkActive="router-link-active">Home <span
+                            class="sr-only"></span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/products']" routerLinkActive="router-link-active">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/add-product']" routerLinkActive="router-link-active">Add
+                        Product</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/login']" routerLinkActive="router-link-active">Add
+                        Product</a>
+                </li>
+                
+            </ul>
+        </div>
+        <div>
+            <a class="nav-link me me-3" [routerLink]="['/user-profile']" routerLinkActive="router-link-active">
+                <i class="fa fa-user" style="font-size:30px"></i>
+            </a>
+        </div>
+        <div>
+          
+            <a class="nav-link" [routerLink]="['/checkout']" routerLinkActive="router-link-active">
+                <i class="fa fa-shopping-cart" style="font-size:30px"></i>
+            </a>
+        </div>
+        
+    </div>
+</nav>
+<div class="container">
+    <router-outlet></router-outlet>
+</div>
+
+<!-- Bryntum Tables (Grid) -->
+
+<!-- <bryntum-grid [data]="data" [columns]="gridConfig.columns!"></bryntum-grid> -->
+
+<!-- Bryntum Scheduler -->
+<!-- 
+<bryntum-scheduler #scheduler [resources]="resources" [events]="events" [columns]="schedulerConfig.columns!"
+    [startDate]="schedulerConfig.startDate!" [endDate]="schedulerConfig.endDate!"></bryntum-scheduler> -->

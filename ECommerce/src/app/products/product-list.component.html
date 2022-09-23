@@ -1,0 +1,72 @@
+<div class="card mat-card">
+    <div class="card-header">
+        <h4 class="text-center">
+            {{pageTitle}}
+        </h4>
+    </div>
+
+    <div *ngFor="let data of dbTestData">
+        <ul>
+            <li>{{data.lm_date}}</li>
+        </ul>
+    </div>
+    <!-- <div class="card-body">
+        <div class="row">
+            <div class="col-md-2">Filter by: </div>
+            <div class="col-md-4">
+                <input type="text" [(ngModel)]="filteredList">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Filtered by: {{filteredList}}</h4>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            <button class="btn btn-primary" (click)="showImages()">
+                                {{showImage ? "Hide" : "Show"}} image
+                            </button>
+                        </th>
+                        <th> Product</th>
+                        <th> Code</th>
+                        <th> Available</th>
+                        <th> Price</th>
+                        <th> 5 Star Rating</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let product of filteredProducts">
+                        <td>
+                            <img *ngIf="showImage" [src]="product.imageUrl" [style.width.px]="imageWidth"
+                                [style.margin.px]="imageHeight" alt="">
+                        </td>
+                        <td>
+                            <a [routerLink]="['/products', product.productId]" routerLinkActive="router-link-active">
+                                {{product.productName}}
+                            </a>
+                        </td>
+                        <td>{{product.productCode}}</td>
+                        <td>{{product.releaseDate}}</td>
+                        <td>{{product.price | currency:"USD"}}</td>
+                        <td>
+                            <app-star [rating]="product.starRating" (ratingClicked)="onRatingClicked($event)">
+                            </app-star>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div> -->
+    <div class="card-body">
+        <app-product-list-grid></app-product-list-grid>
+        <!-- <bryntum-grid [data]="filteredProducts" [columns]="gridConfig.columns!" [height]="gridConfig.height!">
+        </bryntum-grid> -->
+        <!-- [features]="gridConfig.features!"  [listeners]="gridConfig.listeners!" -->
+    </div>
+    <div class="card-footer">
+    </div>
+</div>
