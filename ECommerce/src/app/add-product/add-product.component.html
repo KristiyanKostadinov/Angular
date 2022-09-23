@@ -1,0 +1,105 @@
+<div class="card">
+    <div class="card-header">
+        <h4 class="text-center">
+            Add Product
+        </h4>
+    </div>
+    <div class="card-body">
+        <form [formGroup]="addProductForm" (submit)="saveUser()">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <div class="form-group row mb-2">
+                                <label for="productName" class="col-md-2">Name: </label>
+                                <div class="col-md-8">
+                                    <input type="text" class="form-control width" id="productName" name="productName"
+                                        formControlName="productName">
+                                    <small class="mat-error form-check-inline"
+                                        *ngIf="addProductForm.get('productName')?.invalid && addProductForm.get('productName')?.touched">
+                                        Please provide a name!
+                                    </small>
+                                </div>
+                            </div>
+                            <div class="form-group row mb-2">
+                                <label for="productCode" class="col-md-2">Code: </label>
+                                <div class="col-md-8">
+                                    <input type="text" class="form-control width" [value]="codeForProduct"
+                                        formControlName="productCode">
+                                </div>
+                            </div>
+                            <div class="form-group row mb-2">
+                                <label for="releaseDate" class="col-md-2">Release Date: </label>
+                                <div class="col-md-8">
+                                    <input type="date" id="releaseDate" class="form-control width"
+                                        formControlName="releaseDate">
+                                    <small class="mat-error form-check-inline"
+                                        *ngIf="addProductForm.get('releaseDate')?.touched && addProductForm.get('releaseDate')?.invalid">
+                                        Please provide a date!</small>
+                                </div>
+                            </div>
+                            <div class="form-group row mb-2">
+                                <label for="description" class="col-md-2">Description: </label>
+                                <div class="col-md-8">
+                                    <textarea id="description" class="form-control width"
+                                        formControlName="description"></textarea>
+                                    <small class="mat-error form-check-inline"
+                                        *ngIf="addProductForm.get('description')!.invalid && addProductForm.get('description')!.touched">
+                                        Please provide a description!</small>
+                                </div>
+                            </div>
+                            <div class="form-group row mb-2">
+                                <label for="price" class="col-md-2">Price: </label>
+                                <div class="col-md-8">
+                                    <input type="number" id="price" class="form-control width" formControlName="price"
+                                        min="1" step="0.10">
+
+                                    <small class="mat-error form-check-inline"
+                                        *ngIf="addProductForm.get('price')?.touched && addProductForm.get('price')?.invalid">
+                                        Please provide a price!</small>
+                                </div>
+                            </div>
+                            <div class="form-group row mb-2">
+                                <label for="starRating" class="col-md-2">Star Rating: </label>
+                                <div class="col-md-8">
+                                    <input type="number" id="starRating" class="form-control width"
+                                        formControlName="starRating" min="1" max="5">
+                                    <small class="mat-error form-check-inline"
+                                        *ngIf="addProductForm.get('starRating')?.touched && addProductForm.get('starRating')?.invalid">
+                                        Please provide a rating!</small>
+                                </div>
+                            </div>
+                            <div class="form-group row mb-2">
+                                <label for="upload" class="col-md-2">Image: </label>
+                                <div class="col-md-8">
+                                    <input type="file" name="uploadfile" id="upload" style="display:none;"
+                                        (change)="onFileChange($event)" formControlName="img" />
+                                    <label for="upload" class="btn btn-secondary">Choose File</label>
+                                    <small class="mat-error form-check-inline"
+                                        *ngIf="addProductForm.get('img')?.touched && addProductForm.get('img')?.invalid">
+                                        Please provide an image!</small>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form group row">
+                                <div *ngIf="isShown" class="col-md-2">
+                                    <img [src]="imgUrl" alt="product" width="300" height="200" id="img">
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="text-center">
+                <button class="btn btn-primary width" type="submit" [disabled]="addProductForm.invalid">
+                    Save
+                </button>
+            </div>
+        </form>
+    </div>
+    <div class="card-footer">
+    </div>
+</div>
