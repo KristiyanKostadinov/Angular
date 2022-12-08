@@ -1,0 +1,68 @@
+#s5 {
+    width: 100%;
+    height: 400px;
+    background-image: url("../../../assets/pic/61.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    position: relative;
+    background-attachment: fixed;
+    color: #ffffff;
+    font-family: 'Pacifico', cursive;
+    font-weight: bolder;
+    text-shadow: 5px 5px 10px black;
+    font-size: larger;
+  
+  }
+  
+  .card {
+    transition: 0.4s ease;
+    margin-bottom: 20px;
+  }
+  
+  .card-body {
+    padding: 30px 0px !important;
+  }
+  
+  .card:hover {
+    transform: translateY(-20px);
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.7);
+  }
+  
+  .font-poppins {
+    font-family: 'Concert One', sans-serif;
+    color: #13974a;
+  }
+  
+  .font-poppins:hover {
+    color: #06642d;
+  }
+  
+  
+  .card-footer {
+    color: #00abff;
+    text-decoration: none;
+  }
+  
+  .card-footer :hover {
+    color: #24d6ee;
+    text-decoration: none;
+  }
+  
+  .pulsate {
+    animation: pulsate 2s linear;
+    animation-iteration-count: infinite;
+  }
+  
+  @keyframes pulsate {
+    0% {
+      opacity: 0.5;
+    }
+  
+    50% {
+      opacity: 1.0;
+    }
+  
+    100% {
+      opacity: 0.5;
+    }
+  }

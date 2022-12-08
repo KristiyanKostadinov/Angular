@@ -1,0 +1,65 @@
+[
+  {
+    "id": "1",
+    "name": "Peppy Paneer",
+    "image": "assets/pic/16.jpg",
+    "price": 10.99,
+    "quantity": 0
+  },
+  {
+    "id": "2",
+    "name": "Mexican Green Wave",
+    "image": "../assets/pic/17.jpg",
+    "price": 12.99,
+    "quantity": 0
+  },
+  {
+    "id": "3",
+    "name": "Veg Extravaganza",
+    "image": "../assets/pic/18.jpg",
+    "price": 11.99,
+    "quantity": 0
+  },
+  {
+    "id": "4",
+    "name": "Paneer Makhani",
+    "image": "../assets/pic/23.jpg",
+    "price": 14.99,
+    "quantity": 0
+  },
+  {
+    "id": "5",
+    "name": "Margherita",
+    "image": "../assets/pic/24.jpg",
+    "price": 9.99,
+    "quantity": 0
+  },
+  {
+    "id": "6",
+    "name": "Double Cheese Margherita",
+    "image": "../assets/pic/19.jpg",
+    "price": 17.99,
+    "quantity": 0
+  },
+  {
+    "id": "7",
+    "name": "Fresh Veggie",
+    "image": "../assets/pic/20.jpg",
+    "price": 10.99,
+    "quantity": 0
+  },
+  {
+    "id": "8",
+    "name": "Veggie Paradise",
+    "image": "../assets/pic/21.jpg",
+    "price": 12.99,
+    "quantity": 0
+  },
+  {
+    "id": "9",
+    "name": "Cheese N Corn",
+    "image": "../assets/pic/22.jpg",
+    "price": 11.99,
+    "quantity": 0
+  }
+]

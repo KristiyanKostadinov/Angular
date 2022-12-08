@@ -1,0 +1,109 @@
+.header {
+  background: url("../../../assets/pic/46.jpg");
+
+  width: 100%;
+  /* height: 130vh; */
+
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  position: relative;
+  background-attachment: fixed;
+}
+
+.fontReserve{
+  font-size: 52px;
+}
+
+.fontSelect{
+  color: #0b1526;
+}
+
+.fontP {
+  font-family: 'Pacifico', cursive;
+  color: #ffffff;
+  font-weight: bolder;
+  text-shadow: 5px 5px 10px black;
+}
+.fontGender{
+  font-weight: bolder;
+  text-shadow: 5px 5px 10px black;
+}
+
+.fontSize{
+  font-size: 20px;
+}
+.fontPhone {
+  color: #ffffff;
+  font-weight: bolder;
+  text-shadow: 5px 5px 10px black;
+}
+
+/*
+.header {
+  width: 100%;
+  height: 100vh;
+  background-image: url("../../../assets/pic/46.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  position: relative;
+  background-attachment: fixed;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-family: 'Pacifico', cursive;
+  color: #ffffff;
+  font-weight: bolder;
+  text-shadow: 5px 5px 10px black;
+  font-size: larger;
+} */
+
+
+/* form */
+
+.form-content label,
+.was-validated .form-check-input:invalid~.form-check-label,
+.was-validated .form-check-input:valid~.form-check-label {
+  color: #fff;
+}
+
+.form-content input[type=text],
+.form-content input[type=password],
+.form-content input[type=email],
+.form-content select {
+  width: 100%;
+  padding: 10px 20px;
+  text-align: left;
+  border: 0;
+  outline: 0;
+  border-radius: 6px;
+  font-size: 15px;
+  margin-top: 16px;
+}
+
+.form-content .form-items {
+  padding: 40px;
+  display: inline-block;
+  width: 100%;
+  /* min-width: 500px; */
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  text-align: left;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+font-sizeSelect{
+  font-size: 20px;
+}
+
+.font-poppins {
+  font-family: 'Concert One', sans-serif;
+  color: #26a15c;
+}
+
+.font-poppins:hover {
+  color: #06642d;
+}
+
+.invalidField{
+  color: red;
+}

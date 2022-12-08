@@ -1,0 +1,63 @@
+<html>
+
+<head>
+    <link
+        href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Audiowide&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Concert+One|Oswald|Quicksand&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div>
+
+        <h1 style="text-align: center; padding-bottom: 40px; padding-top: 20px;" class="animated pulse infinite font-poppins">Our Famous
+            Salads</h1>
+        <div class="container">
+            <div class="row">
+                <div class="container col12 mb-4">
+                    <span>
+                        <span>
+                            <a [routerLink]="['/menu']" routerLinkActive="router-link-active" id="menu"
+                                class="font-poppins">Menu</a>
+                        </span>
+                    </span>
+                    <span class="arrow">&rsaquo;</span>
+                    <span>
+                        <span class="selected">
+                            <strong>Salads</strong>
+                        </span>
+                    </span>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-4 mb-2" *ngFor="let salad of salads">
+                    <div class="card">
+                        <img [src]="salad.image" class="img-fluid" style="width: 100%;height: auto;">
+                        <div class="card-body text-center">
+                            <h5 class="card-title" style="text-align: center;">{{salad.name}}</h5>
+                            <button type="button" data-container="body" class="btn btn-success" onclick="success_msg()"
+                                (click)=addtocart(salad) data-toggle="popover" data-placement="bottom"
+                                data-content="Successfully added to your cart!">
+                                <i class="fa fa-shopping-cart shoppingCartIcon" aria-hidden="true"></i>
+                                <span class="shoppingCartPrice">${{salad.price}}</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<footer id="s5">
+    <div class="pulsate">
+        <h1 style="text-align: center; padding-top: 100px;" class="display-2">slice to meet you</h1>
+    </div>
+</footer>
+
+</html>

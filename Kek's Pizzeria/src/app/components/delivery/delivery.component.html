@@ -1,0 +1,284 @@
+<head>
+    <link
+        href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Audiowide&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Concert+One|Oswald|Quicksand&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<div class="card">
+    <h1 style="text-align: center; padding-top: 40px; padding-bottom: 40px;"
+        class="animated pulse  infinite font-poppins">Delivery</h1>
+    <div class="card-body">
+        <div class="checkout shopping">
+            <div class="container">
+                <form class="checkout-form" #detailsForm="ngForm" [formGroup]="dform">
+
+                    <div class="row">
+                        <div class="col-lg-8 pr-5">
+                            <div class="billing-details">
+                                <h4 class="mb-4">Delivery Details</h4>
+                                <!-- <form class="checkout-form" #detailsForm="ngForm" [formGroup]="dform"> -->
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group mb-4">
+                                            <label for="fname">First Name</label>
+                                            <input type="text" class="form-control" id="fname" formControlName="fname"
+                                                name="fname">
+                                            <mat-error *ngIf="fname.touched && fname.invalid">Please enter a name!
+                                            </mat-error>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group mb-4">
+                                            <label for="last_name">Last Name</label>
+                                            <input type="text" class="form-control" id="last_name"
+                                                formControlName="lname" placeholder="">
+                                            <mat-error *ngIf="lname.touched && lname.invalid">Please enter a name!
+                                            </mat-error>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="form-group mb-4">
+                                            <label for="company_name">Company Name (Optional)</label>
+                                            <input type="text" class="form-control" id="company_name"
+                                                formControlName="companyname" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="form-group mb-4">
+                                            <label for="town">Town / City </label>
+                                            <input type="text" class="form-control" id="town" formControlName="town">
+                                            <mat-error *ngIf="town.touched && town.invalid">Please enter a city!
+                                            </mat-error>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="form-group mb-4">
+                                            <label for="district">District</label>
+                                            <select class="form-control" formControlName="district" id="district"
+                                                name="district">
+                                                <option value="" hidden>Select an Option</option>
+                                                <option class="fontSelect" *ngFor="let district of districts"
+                                                    [ngValue]="district">{{district}}</option>
+                                            </select>
+                                            <mat-error *ngIf="district.touched && district.invalid">Please select a
+                                                district!</mat-error>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="form-group mb-4">
+                                            <label for="street">Street Address</label>
+                                            <input type="text" class="form-control" id="street" formControlName="street"
+                                                placeholder="">
+                                            <mat-error *ngIf="street.touched && street.invalid">Please enter an address!
+                                            </mat-error>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="form-group mb-4">
+                                            <label for="apartment">Apartment, suite, unit etc.</label>
+                                            <input type="text" class="form-control" formControlName="apartment"
+                                                id="apartment">
+                                            <mat-error *ngIf="apartment.touched && apartment.invalid">Please enter an
+                                                address!</mat-error>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12">
+                                        <div class="form-group mb-4">
+                                            <label for="postcode">Postcode / ZIP</label>
+                                            <input type="text" class="form-control" id="postcode"
+                                                formControlName="postcode" placeholder="">
+                                            <mat-error *ngIf="postcode.touched && postcode.invalid">Please enter a
+                                                postcode!</mat-error>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="form-group mb-4">
+                                            <label for="phone">Phone </label>
+                                            <input type="text" class="form-control" id="phone" formControlName="phone"
+                                                placeholder="">
+                                            <mat-error *ngIf="phone.touched && phone.invalid">Please enter a phone!
+                                            </mat-error>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="form-group mb-4">
+                                            <label for="email">Email address </label>
+                                            <input type="text" class="form-control" id="email" formControlName="email"
+                                                placeholder="">
+                                            <mat-error *ngIf="email.touched && email.invalid">Please enter an email!
+                                            </mat-error>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="form-group mb-4">
+                                            <label for="notes">Order notes (Optional)</label>
+                                            <textarea class="form-control" id="notes" name="notes" cols="30" rows="5"
+                                                placeholder="Additional information" formControlName="notes"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- </form> -->
+                            </div>
+                        </div>
+                        <!-- Order sidebar Summary -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="product-checkout-details mt-2 mt-lg-0">
+                                <div>
+                                    <h4 class="mb-4 border-bottom pb-4 text-center">Order Summary</h4>
+                                    <div *ngIf="products.length == 0">
+                                        <div class="media product-card mb-2">
+                                            <h6>Your cart is empty!</h6>
+                                            <div class="media-body text-right">
+                                                <button [routerLink]="['/menu']" routerLinkActive="router-link-active"
+                                                    class="btn btn-primary">
+                                                    <i class="fa fa-shopping-cart shoppingCartIcon">
+                                                    </i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="media product-card mb-2" *ngFor="let item of products">
+                                        <p>{{item.name}}</p>
+                                        <div class="media-body text-right">
+                                            <p class="h6">${{item.price}}</p>
+                                            <button (click)="removeItem(item)" class="btn btn-danger">
+                                                <i class="fa fa-trash shoppingCartIcon"></i></button>
+                                        </div>
+
+                                    </div>
+                                    <ul class="summary-prices list-unstyled mb-4 info mt-4 border-top pt-4 mb-1">
+                                        <div class="mb-3">
+                                            <input (keyup)="onKey($event)" class="form-control" type="text"
+                                                placeholder="Enter Coupon Code" id="discountField" #discount>
+                                        </div>
+                                        <li class="d-flex justify-content-between">
+                                            <span>Subtotal:</span>
+                                            <span class="h5">${{sum}}</span>
+                                        </li>
+                                        <li class="d-flex justify-content-between">
+                                            <span>Delivery:</span>
+                                            <span class="h5" *ngIf="sum < 50">$4.99</span>
+                                            <span class="h5" *ngIf="sum > 50">Free</span>
+                                        </li>
+                                        <li class="d-flex justify-content-between" *ngIf="values==='KEK'">
+                                            <span>Discount from coupon:</span>
+                                            <span class="h5">$10.00</span>
+                                        </li>
+                                        <li class="d-flex justify-content-between" *ngIf="values==='KEK'">
+                                            <span>Total:</span>
+                                            <span class="h5" *ngIf="sum === 0">$0</span>
+                                            <span class="h5" *ngIf="sum < 50 && sum > 0">${{total - 10}}</span>
+                                            <span class="h5" *ngIf="sum > 50">${{sum - 10}}</span>
+                                        </li>
+                                        <li class="d-flex justify-content-between" *ngIf="values !=='KEK'">
+                                            <span>Total</span>
+                                            <span class="h5" *ngIf="sum === 0">$0</span>
+                                            <span class="h5" *ngIf="sum < 50 && sum > 0">${{total}}</span>
+                                            <span class="h5" *ngIf="sum > 50">${{sum}}</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- <form class="checkout-form" [formGroup]="dform"> -->
+                                <h5 class="py-3">How would you like to pay?</h5>
+                                <div class="form-check mb-3">
+                                    <input class="form-check-input" type="radio" name="cashorvisa" id="cashorvisa"
+                                        (change)="true" #debitCard value="card" formControlName="cashorvisa">
+                                    <label class="form-check-label" for="exampleRadios1">
+                                        Visa/Mastercard
+                                    </label>
+                                </div>
+                                <div *ngIf="debitCard.checked">
+                                    <div>
+                                        <div class="form-group">
+                                            <label class="fontChildren" for="cardnumber">Card Number</label>
+                                            <input type="text" class="form-control" id="cardnumber" name="cardnumber"
+                                                placeholder="" formControlName="cardnumber">
+                                            <mat-error *ngIf="cardnumber.touched && cardnumber.invalid">Please enter a
+                                                card number!</mat-error>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="form-group">
+                                            <label class="fontChildren" for="cardholder">Cardholder's Name</label>
+                                            <input type="text" class="form-control" id="cardholder" placeholder=""
+                                                formControlName="cardholder">
+                                            <mat-error *ngIf="cardholder.touched && cardholder.invalid">Please enter a
+                                                cardholder's name!</mat-error>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="form-group">
+                                            <label class="fontChildren" for="expiryMonth">Expiry Month</label>
+                                            <input type="text" class="form-control" id="expiryMonth" placeholder=""
+                                                formControlName="expirymonth">
+                                            <mat-error *ngIf="expirymonth.touched && expirymonth.invalid">Please enter
+                                                an expiry month!</mat-error>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="form-group">
+                                            <label class="fontChildren" for="expiryYear">Expiry Year</label>
+                                            <input type="text" class="form-control" id="expiryYear" placeholder=""
+                                                formControlName="expiryyear">
+                                            <mat-error *ngIf="expiryyear.touched && expiryyear.invalid">Please enter an
+                                                expiry year!</mat-error>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="form-group">
+                                            <label class="fontChildren" for="securityCode">Security Code</label>
+                                            <input type="text" class="form-control" id="securityCode" placeholder=""
+                                                formControlName="securitycode">
+                                            <mat-error *ngIf="securitycode.touched && securitycode.invalid">Please enter
+                                                a security code!</mat-error>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-check mb-3">
+                                    <input class="form-check-input" type="radio" name="cashorvisa" id="cashorvisa"
+                                        (change)="true" value="cash" formControlName="cashorvisa">
+                                    <label class="form-check-label" for="cashorvisa">
+                                        Cash
+                                    </label>
+                                </div>
+                                <mat-error *ngIf="cashorvisa.touched && cashorvisa.invalid">Please select a payment
+                                    method!</mat-error>
+                                <div class="info mt-4 border-top pt-4 mb-1">
+                                    <div class="form-check mb-3">
+                                        <input type="checkbox" class="form-check-input" id="tandc"
+                                            formControlName="tandc" #agree>
+                                        <label class="form-check-label" for="tandc">I have read and agree to the
+                                            website <a href="https://shortly.bg/asYhG">terms and conditions </a></label>
+                                        <mat-error *ngIf="!agree.checked && tandc.touched">Please aggree to our terms
+                                            and conditions!</mat-error>
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    <button class="btn btn-primary" [disabled]="detailsForm.invalid || !agree.checked "
+                                        (click)="openDialog(); order(detailsForm.value); discount.value =''">
+                                        Place Order
+                                    </button>
+                                </div>
+                                <!-- </form>  [disabled]="detailsForm.invalid || !tandc.checked"  || cashorvisa.value === 'card' || cardholder.valid || cardnumber.valid || securitycode.valid || expirymonth.valid || expiryyear.valid-->
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<footer id="s5">
+    <div class="pulsate">
+        <h1 style="text-align: center; padding-top: 100px;" class="display-2">slice to meet you</h1>
+    </div>
+</footer>

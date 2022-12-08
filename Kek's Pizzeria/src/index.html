@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Kek's Pizzeria</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="assets/favicon_io/favicon-16x16.png">
+  <script>
+    function topFunction() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+    function success_msg() {
+      // alert("Added to cart");
+      // setTimeout(()=>{console.log('SUCCESS')},5000);
+      let msg = "<h5>Successfully added to your cart</h5>";
+      let duration = 800;
+      let el = document.createElement("div");
+      el.setAttribute("style", "text-align:center; position:fixed;top: 85%;border-radius: 25px; left: 40%;padding: 20px;background-color:#66cc91;color:#232b2b; font-family: 'Concert One', sans-serif");
+      el.innerHTML = msg;
+      setTimeout(function () {
+        el.parentNode.removeChild(el);
+      }, duration);
+      document.body.appendChild(el);
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+  <app-root></app-root>
+</body>
+
+</html>

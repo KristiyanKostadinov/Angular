@@ -1,0 +1,158 @@
+<div class="header">
+  <div class="container">
+    <div class="text-center">
+      <h1 style="text-align: center; padding-top: 40px; padding-bottom: 40px;" class="font-poppins"> Reserve a table
+      </h1>
+      <div class="row">
+        <div class="col-lg-6 mb-4">
+          <div>
+            <div class="card-body">
+              <div>
+                <h2 class="card-title fontP mb-5">Through Phone</h2>
+              </div>
+              <h5 class="fontPhone">
+                We accept reservations for lunch and dinner.
+                <br>
+                <br>
+              </h5>
+              <h5 class="fontPhone">
+                To make a reservation in Levski, call us on <br> <b class="font-poppins" href="#">+359 866 12 338</b>
+                from 09:00 to 23:00
+                throughout
+                the
+                week.
+                <br>
+                <br>
+              </h5>
+              <h5 class="fontPhone">
+                For a reservation in Vazrazhdane, call us on <br> <b class="font-poppins">+359 886 52 355</b> from 09:00
+                to 23:00
+                throughout
+                the
+                week.
+                <br>
+                <br>
+
+              </h5>
+              <h5 class="fontPhone">
+
+                When booking through our website, expect a call from our employee to confirm the
+                reservation.
+              </h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 mb-4">
+          <div>
+            <div class="card-body">
+              <div>
+                <h2 class="card-title fontP">Through Form</h2>
+              </div>
+              <div class="card-text form-body text-center">
+                <div class="row">
+                  <div class="form-holder">
+                    <div class="form-content">
+                      <div class="form-items">
+                        <form #resForm="ngForm" [formGroup]="form">
+                          <div class="col-md-12">
+                            <input matInput class="form-control" type="date" name="date" id="date" placeholder="Date"
+                              formControlName="date">
+                            <span class="invalidField" *ngIf="date.touched && date.invalid">Please enter the desired
+                              date!</span>
+                          </div>
+                          <!-- <div class="col-md-12">
+                            <input class="form-control" type="date" name="date" id="date"
+                                   placeholder="Date" formControlName="date">
+                            <span class="invalidField" *ngIf="date.touched && date.invalid">Please enter the desired date!</span>
+
+                          </div> -->
+                          <div class="col-md-12 mt-3">
+                            <ngx-timepicker-field class="form-control" formControlName="time" name="time" id="time"
+                              [format]="24" min="12:00" max="23:00">
+                            </ngx-timepicker-field>
+                            <span class="invalidField" *ngIf="time.touched && time.invalid">Please enter the desired
+                              time!</span>
+
+                            <!--                            <input type="time" class="form-control" formControlName="time" name="time"-->
+                            <!--                                   id="time">-->
+                          </div>
+                          <div class="col-md-12">
+                            <select class="form-control mt-3" formControlName="numberPeople" name="numberPeople"
+                              id="numberPeople">
+                              <option value="" disabled class="font-sizeSelect">Select number of people</option>
+                              <option class="fontSelect" *ngFor="let number of people" [ngValue]="number">{{number }}
+                              </option>
+                            </select>
+                            <span class="invalidField" *ngIf="numberPeople.touched && numberPeople.invalid">Please enter
+                              the number of people!</span>
+                          </div>
+
+                          <div class="col-md-12">
+                            <select class="form-control mt-3" formControlName="neighborhood" name="neighborhood"
+                              id="neighborhood">
+                              <option value="" disabled class="font-sizeSelect">Select neighborhood</option>
+                              <option class="fontSelect" *ngFor="let district of districts" [ngValue]="district">
+                                {{district}}</option>
+                            </select>
+                            <span class="invalidField" *ngIf="neighborhood.touched && neighborhood.invalid">Please enter
+                              the desired neighborhood!</span>
+
+                          </div>
+                          <div class="col-md-12">
+                            <input class="form-control" type="text" name="name" id="name" placeholder="Full Name"
+                              formControlName="name">
+                            <span class="invalidField" *ngIf="name.touched && name.invalid">Please enter your
+                              name!</span>
+                          </div>
+                          <div class="col-md-12">
+                            <input class="form-control" type="email" name="email" formControlName="email" id="email"
+                              placeholder="E-mail Address">
+                            <span class="invalidField" *ngIf="email.touched && email.invalid">Please enter your
+                              email!</span>
+                          </div>
+                          <div class="col-md-12 mt-3">
+                            <input class="form-control" type="tel" name="phone" id="phone" formControlName="phone"
+                              placeholder="Phone Number">
+                            <span class="invalidField" *ngIf="phone.touched && phone.invalid">Please enter your
+                              phone!</span>
+                          </div>
+                          <div class="col-md-12 mt-3">
+                            <textarea class="form-control" placeholder="Additional Information" rows="4" cols="50"
+                              name="comment" id="comment" formControlName="comment"></textarea>
+                          </div>
+
+                          <div class="col-md-12 mt-2">
+                            <div class="form-check ">
+                              <input class="form-check-input" type="checkbox" name="agree" id="agree"
+                                formControlName="agree" #trueData>
+                              <label class="form-check-label fontGender ">I confirm
+                                that
+                                all data
+                                is
+                                correct</label>
+                            </div>
+                            <span class="invalidField" *ngIf="!trueData.checked && agree.touched">Please confirm that
+                              the
+                              entered data is correct!</span>
+                            <div class="form-button mt-3 text-center">
+                              <button id="submit" type="submit" class="btn btn-dark"
+                                [disabled]="resForm.invalid || !trueData.checked"
+                                (click)="reserve(resForm.value); openDialog()">
+                                Reserve
+                              </button>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

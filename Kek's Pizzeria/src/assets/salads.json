@@ -1,0 +1,65 @@
+[
+  {
+    "id": "1",
+    "name": "Boneless Buffalo Chicken Salad",
+    "image": "assets/salads/boneless.avif",
+    "price": 13.99,
+    "quantity": 0
+  },
+  {
+    "id": "2",
+    "name": "Quesadilla Explosion Salad",
+    "image": "assets/salads/explosion.avif",
+    "price": 8.99,
+    "quantity": 0
+  },
+  {
+    "id": "3",
+    "name": "Santa Fe Crispers® Salad",
+    "image": "assets/salads/santa-fe.avif",
+    "price": 14.99,
+    "quantity": 0
+  },
+  {
+    "id": "4",
+    "name": "Santa Fe Chicken Salad",
+    "image": "assets/salads/santa-fe-chicken.avif",
+    "price": 12.99,
+    "quantity": 0
+  },
+  {
+    "id": "5",
+    "name": "Chili's House Salad",
+    "image": "assets/salads/chili.avif",
+    "price": 10.99,
+    "quantity": 0
+  },
+  {
+    "id": "6",
+    "name": "Chicken House Salad",
+    "image": "assets/salads/chicken.avif",
+    "price": 8.99,
+    "quantity": 0
+  },
+  {
+    "id": "7",
+    "name": "Shrimp House Salad",
+    "image": "assets/salads/shrimp.avif",
+    "price": 7.99,
+    "quantity": 0
+  },
+  {
+    "id": "8",
+    "name": "Ancho Salmon House Salad",
+    "image": "assets/salads/ancho.avif",
+    "price": 9.99,
+    "quantity": 0
+  },
+  {
+    "id": "9",
+    "name": "Chicken Caesar Salad",
+    "image": "assets/salads/caesar.avif",
+    "price": 10.99,
+    "quantity": 0
+  }
+]

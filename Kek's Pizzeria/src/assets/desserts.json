@@ -1,0 +1,65 @@
+[
+  {
+    "id": "1",
+    "name": "Classic chocolate mousse",
+    "image": "assets/desserts/mousse.jpg",
+    "price": 9.99,
+    "quantity": 0
+  },
+  {
+    "id": "2",
+    "name": "Baked plums with mascarpone",
+    "image": "assets/desserts/mascarpone.jpg",
+    "price": 8.99,
+    "quantity": 0
+  },
+  {
+    "id": "3",
+    "name": "Lemon meringue brûlée tart",
+    "image": "assets/desserts/brule.jpg",
+    "price": 10.99,
+    "quantity": 0
+  },
+  {
+    "id": "4",
+    "name": "Classic crème caramel",
+    "image": "assets/desserts/caramel.jpg",
+    "price": 11.99,
+    "quantity": 0
+  },
+  {
+    "id": "5",
+    "name": "Blueberry muffin cobbler",
+    "image": "assets/desserts/muffin.jpg",
+    "price": 9.99,
+    "quantity": 0
+  },
+  {
+    "id": "6",
+    "name": "Nectarine and basil galette",
+    "image": "assets/desserts/nectarine.jpg",
+    "price": 13.99,
+    "quantity": 0
+  },
+  {
+    "id": "7",
+    "name": "Frozen strawberry trifle",
+    "image": "assets/desserts/trifle.jpg",
+    "price": 10.99,
+    "quantity": 0
+  },
+  {
+    "id": "8",
+    "name": "Chocolate pudding",
+    "image": "assets/desserts/pudding.jpg",
+    "price": 10.99,
+    "quantity": 0
+  },
+  {
+    "id": "9",
+    "name": "No-bake salted caramel tart",
+    "image": "assets/desserts/no-bake.jpg",
+    "price": 11.99,
+    "quantity": 0
+  }
+]
