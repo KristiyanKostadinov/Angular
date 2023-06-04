@@ -1,0 +1,13 @@
+<html>
+<header *ngIf="isMenuVisible()">
+    <app-header></app-header>
+</header>
+
+<body>
+    <router-outlet></router-outlet>
+</body>
+<footer *ngIf="isLoggedIn && isMenuVisible()">
+    <app-footer></app-footer>
+</footer>
+
+</html>

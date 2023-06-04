@@ -1,0 +1,50 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background-image: url('https://mcdn.wallpapersafari.com/medium/27/53/Q3IUrZ.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+    padding: 20px;
+}
+
+.textColor {
+    color: #ffffff;
+}
+
+.table-container {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.actionsCol {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@media screen and (max-width: 800px) {
+    .table-responsive td {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+.icon-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+    margin-right: 60px;
+}
+
+@media screen and (max-width:800px) {
+    .icon-container {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 10px;
+        margin-right: 150px;
+    }
+}

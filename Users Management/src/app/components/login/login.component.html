@@ -1,0 +1,83 @@
+<html>
+<header>
+
+</header>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="image-container">
+                    <img src="https://www.seekpng.com/png/full/44-446333_hello-clipart-wave-bye-person-waving-goodbye-clipart.png"
+                        class="img-fluid" alt="Welcome Image">
+                </div>
+            </div>
+            <div class="col-md-5 mt-5">
+                <h1 class="text-center display-1">Login</h1>
+                    <form #loginForm="ngForm" class="mt-5" (ngSubmit)="login(loginForm)">
+                    <input type="text" class="form-control custom-input" placeholder="Username" id="username"
+                        name="username" [(ngModel)]="username" required minlength="3" maxlength="50"
+                        pattern="^[a-zA-Z0-9]+$">
+
+                    <div *ngIf="loginForm.controls.username?.touched && loginForm.controls.username?.invalid"
+                        class="text-danger">
+                        <div *ngIf="loginForm.controls.username.errors?.required">Username is required.</div>
+                        <div
+                            *ngIf="loginForm.controls.username.errors?.minlength && loginForm.controls.username.errors?.pattern">
+                            Username should be at least 3 characters long and should only contain Latin letters and
+                            numbers.
+                        </div>
+                        <div
+                            *ngIf="loginForm.controls.username.errors?.minlength && !loginForm.controls.username.errors?.pattern">
+                            Username should be at least 3 characters long.
+                        </div>
+                        <div *ngIf="loginForm.controls.username.errors?.maxlength">
+                            Username should not exceed 50 characters.
+                        </div>
+                        <div
+                            *ngIf="loginForm.controls.username.errors?.pattern && !loginForm.controls.username.errors?.minlength">
+                            Username should only contain Latin letters and numbers.
+                        </div>
+                    </div>
+
+                    <input type="password" class="form-control custom-input mt-3" placeholder="Password" id="password"
+                        name="password" [(ngModel)]="password" required minlength="6" maxlength="50">
+
+                    <div *ngIf="loginForm.controls.password?.touched && loginForm.controls.password?.invalid"
+                        class="text-danger">
+                        <div *ngIf="loginForm.controls.password.errors?.required">Password is required.</div>
+                        <div *ngIf="loginForm.controls.password.errors?.minlength">
+                            Password should be at least 6 characters long.
+                        </div>
+                        <div *ngIf="loginForm.controls.password.errors?.maxlength">
+                            Password should not exceed 50 characters.
+                        </div>
+                    </div>
+
+                    <input type="checkbox" class="mt-3" name="robot" [(ngModel)]="robot" required>
+                    I am not a robot
+
+                    <div *ngIf="loginForm.controls.robot?.touched && loginForm.controls.robot?.invalid"
+                        class="text-danger">
+                        <div *ngIf="loginForm.controls.robot.errors?.required">You must confirm that you are not a
+                            robot.</div>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col-auto">
+                            <button class="btn btn-dark" type="submit"
+                                [disabled]="loginForm.invalid || !loginForm.value.robot">Submit</button>
+                        </div>
+                        <div class="col-auto">
+                            <button class="btn btn-dark" (click)="home()">Back</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+<footer>
+</footer>
+
+</html>

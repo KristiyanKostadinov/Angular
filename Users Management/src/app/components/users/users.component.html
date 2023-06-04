@@ -1,0 +1,62 @@
+<html>
+<header>
+
+</header>
+
+<body>
+    <div class="container">
+        <div class="icon-container">
+            <a routerLink="/add"><i class="fa fa-plus fa-2x me-2" title="Add User"
+                    style="color: green; cursor: pointer;"></i></a>
+        </div>
+        <div class="text-center">
+            <div class="table-container">
+                <div class="table-responsive">
+                    <table class="table table-borderless textColor">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Username</th>
+                                <th>Email</th>
+                                <th>Address</th>
+                                <th>Phone</th>
+                                <th>Website</th>
+                                <th>Company</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody *ngFor="let user of users | sort:'asc':'name'">
+                            <tr>
+                                <td>{{user.id}}</td>
+                                <td>{{user.name}}</td>
+                                <td>{{user.username}}</td>
+                                <td>{{user.email}}</td>
+                                <td>{{user.address.street}}, {{user.address.suite}}, {{user.address.city}},
+                                    {{user.address.zipcode}}, {{user.address.geo.lat}}, {{user.address.geo.lng}}</td>
+                                <td>{{user.phone}}</td>
+                                <td>{{user.website}}</td>
+                                <td>{{user.company.name}}, {{user.company.catchPhrase}}, {{user.company.bs}}</td>
+                                <td class="actionsCol align-middle">
+                                    <a routerLink="/preview/{{ user.id }}"><i class="fa fa-eye fa-2x me-2"
+                                            style="color: blue; cursor: pointer;" title="View User"></i></a>
+                                    <a routerLink="/edit/{{ user.id }}"><i class="fa fa-edit fa-2x me-2"
+                                            title="Edit User" style="color: yellow; cursor: pointer;"></i></a>
+                                    <!-- <i class="fa fa-plus fa-2x me-2" style="color: green; cursor: pointer;"
+                                        (click)="addUser()"></i> -->
+                                    <i class="fa fa-trash fa-2x" title="Delete User"
+                                        style="color: red; cursor: pointer;"
+                                        (click)="deleteUser(user.name, user.id)"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<footer>
+</footer>
+
+</html>

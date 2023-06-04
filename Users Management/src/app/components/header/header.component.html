@@ -1,0 +1,21 @@
+<html>
+<header>
+
+</header>
+
+<body>
+    <nav>
+        <ul>
+            <li *ngIf="isLoggedIn"><a routerLink="/home" routerLinkActive="active">Home</a></li>
+            <li *ngIf="isLoggedIn"><a routerLink="/users" routerLinkActive="active">Users</a></li>
+            <li *ngIf="!isLoggedIn"><a routerLink="/login" routerLinkActive="active">Login</a></li>
+            <li *ngIf="isLoggedIn"><a routerLink="/logout" routerLinkActive="active" (click)="logout()">Logout</a></li>
+        </ul>
+    </nav>
+
+</body>
+<footer>
+
+</footer>
+
+</html>
