@@ -1,0 +1,63 @@
+.container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+  white-space: nowrap; /* Prevent line breaks within table cells */
+}
+
+th,
+td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.topMargin {
+  margin-top: 100px;
+}
+
+.font-poppins {
+  font-family: 'Concert One', sans-serif;
+  color: #2196f3;
+}
+
+.font-poppins:hover {
+  color: #0d47a1;
+}
+
+#mybtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99;
+  border: none;
+  color: black;
+  background: white;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+#mybtn:hover {
+  color: #00abff;
+}
+
+.scroll {
+  overflow-y: scroll;
+  max-height: 480px;
+}
+
+@media only screen and (max-width: 600px) {
+  .scroll {
+    overflow-y: scroll;
+    max-height: 800px;
+  }
+}

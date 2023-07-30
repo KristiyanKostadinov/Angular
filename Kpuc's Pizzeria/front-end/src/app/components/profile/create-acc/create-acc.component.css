@@ -1,0 +1,46 @@
+body {
+    font-family: 'Concert One', sans-serif;
+}
+
+.bg {
+    background-image: url("../../../../assets/backgrounds/loginBg.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    position: relative;
+    background-attachment: fixed;
+}
+
+.bgCard {
+    background-color: #1D1F20;
+}
+
+.white {
+    color: whitesmoke;
+}
+
+.font-poppins {
+    color: #2196f3;
+}
+
+.font-poppins:hover {
+    color: #0d47a1;
+}
+
+.flags {
+    display: flex;
+    justify-content: flex-end;
+    padding: 40px;
+}
+
+.language-selector {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.language-selector img {
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+    cursor: pointer;
+}

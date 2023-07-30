@@ -1,0 +1,236 @@
+<html>
+<header>
+    <div *ngIf="typeOfLogin === 'anonymous'">
+        <app-header></app-header>
+    </div>
+    <div *ngIf="typeOfLogin === 'customer'">
+        <app-customer-header></app-customer-header>
+    </div>
+    <div *ngIf="typeOfLogin === 'employee'">
+        <app-employee-header></app-employee-header>
+    </div>
+    <div *ngIf="typeOfLogin === 'admin'">
+        <app-admin-header></app-admin-header>
+    </div>
+</header>
+
+<body class="topMargin">
+    <div class="card">
+        <h1 style="text-align: center; padding-top: 40px; padding-bottom: 40px;"
+            class="animated pulse infinite font-poppins">{{'Cart' | translate}}</h1>
+        <div class="card-body">
+            <div class="checkout shopping">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 pr-5">
+                            <form [formGroup]="detailsForm">
+                                <div class="billing-details">
+                                    <h4 class="mb-4">{{'Delivery Details' | translate}}</h4>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-group mb-4">
+                                                <label for="name">{{'First Name' | translate}}</label>
+                                                <input type="text" class="form-control" id="fname"
+                                                    formControlName="name" name="name">
+                                                <mat-error
+                                                    *ngIf="detailsForm.get('name')?.invalid && detailsForm.get('name')?.touched">
+                                                    {{'Please enter name'| translate}}!
+                                                </mat-error>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group mb-4">
+                                                <label for="l_name">{{'Last Name' | translate}}</label>
+                                                <input type="text" class="form-control" id="l_name"
+                                                    formControlName="l_name" placeholder="" name="l_name">
+                                                <mat-error
+                                                    *ngIf="detailsForm.get('l_name')?.invalid && detailsForm.get('l_name')?.touched">
+                                                    {{'Please enter last name'| translate}}!
+                                                </mat-error>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="form-group mb-4">
+                                                <label for="address">{{'Address'|translate}}</label>
+                                                <input type="text" class="form-control" id="address"
+                                                    formControlName="address" placeholder="" name="address">
+                                                <mat-error
+                                                    *ngIf="detailsForm.get('address')?.invalid && detailsForm.get('address')?.touched">
+                                                    {{'Please be more specific'| translate}}!
+                                                </mat-error>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-12">
+                                            <div class="form-group mb-4">
+                                                <label for="phone">{{'Phone'| translate}} </label>
+                                                <input type="text" class="form-control" id="phone"
+                                                    formControlName="phone" placeholder="" name="phone">
+                                                <mat-error
+                                                    *ngIf="detailsForm.get('phone')?.invalid && detailsForm.get('phone')?.touched">
+                                                    {{'Please enter a phone number'| translate}}!
+                                                </mat-error>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="form-group mb-4">
+                                                <label for="email">{{'Email address' | translate}} </label>
+                                                <input type="text" class="form-control" id="email"
+                                                    formControlName="email" placeholder="" name="email">
+                                                <mat-error
+                                                    *ngIf="detailsForm.get('email')?.invalid && detailsForm.get('email')?.touched">
+                                                    {{'Please enter an email'| translate}}!
+                                                </mat-error>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="form-group mb-4">
+                                                <label for="description">{{'Order notes (Optional)' |
+                                                    translate}}</label>
+                                                <textarea class="form-control" id="description" name="description"
+                                                    cols="30" rows="5"
+                                                    placeholder="{{'Additional information' | translate}}"
+                                                    formControlName="description"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <div class="product-checkout-details mt-2 mt-lg-0">
+                                <div>
+                                    <h4 class="mb-4 border-bottom pb-4 text-center">{{'Order Summary'| translate}}</h4>
+                                    <div *ngIf="products.length == 0">
+                                        <div class="media product-card mb-2">
+                                            <h6>{{'Your cart is empty'| translate}}!</h6>
+                                            <div class="media-body text-right">
+                                                <button [routerLink]="['/menu']" routerLinkActive="router-link-active"
+                                                    class="btn btn-primary">
+                                                    <i class="fa fa-shopping-cart shoppingCartIcon"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="container-class">
+                                        <div class="media product-card mb-2" *ngFor="let item of products">
+                                            <p>{{ item.name | translate}} ({{item.quantity}}) </p>
+                                            <i class="fa fa-plus ml-1" (click)="increaseOne(item)"></i>
+                                            <i class="fa fa-minus ml-2" (click)="decreaseOne(item)"></i>
+                                            <div class="media-body text-right mr-2">
+                                                <p class="h6">{{item.price * item.quantity | number: '1.2-2'}} {{"€" |
+                                                    translate}}</p>
+                                                <button (click)="removeItem(item)" class="btn btn-danger">
+                                                    <i class="fa fa-trash shoppingCartIcon"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <ul class="summary-prices list-unstyled mb-4 info mt-4 border-top pt-4 mb-1">
+                                        <!-- <div class="mb-3">
+                                            <input (keyup)="onKey($event)" class="form-control" type="text"
+                                                placeholder="{{'Enter Coupon Code' | translate}}" id="discountField">
+                                        </div> -->
+                                        <li class="d-flex justify-content-between">
+                                            <span>{{'Subtotal' | translate}}:</span>
+                                            <span class="h5">{{subtotal}} {{"€" | translate}}</span>
+                                        </li>
+                                        <li class="d-flex justify-content-between">
+                                            <span>{{'Delivery' | translate}}:</span>
+                                            <span class="h5" *ngIf="subtotal < 50">{{deliveryCharge}} {{"€" |
+                                                translate}}</span>
+                                            <span class="h5" *ngIf="subtotal > 50">Free</span>
+                                        </li>
+                                        <li class="d-flex justify-content-between" *ngIf="values === 'KEK'">
+                                            <span>{{'Discount from coupon' | translate}}:</span>
+                                            <span class="h5">{{discount | number: '1.2-2'}} {{"€" | translate}}</span>
+                                        </li>
+                                        <li class="d-flex justify-content-between">
+                                            <span>{{'Total' | translate}}:</span>
+                                            <!-- <span class="h5">{{(subtotal + deliveryCharge - (values === 'KEK' ? discount
+                                                : 0)) | number: '1.2-2'}} {{"€" | translate}}</span> -->
+                                            <span class="h5"> {{calculateTotal()}} {{"€" | translate}}</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <h5 class="py-3">{{'How would you like to pay' | translate}}?</h5>
+                                <div class="form-check mb-3">
+                                    <input class="form-check-input" type="radio" name="cashorvisa" id="cashorvisa"
+                                        (change)="true; onPaymentMethodChange(creditCard.value)" #creditCard
+                                        value="card">
+                                    <label class="form-check-label" for="cashorvisa">
+                                        Visa/Mastercard
+                                    </label>
+                                </div>
+                                <div *ngIf="creditCard.checked">
+                                    <form class="text-center" [formGroup]="cardForm">
+                                        <mat-form-field class="ngx-cc-form-field custom-input">
+                                            <input name="creditCardName" formControlName="creditCardName" matInput>
+                                            <mat-placeholder>{{"Name" | translate}}</mat-placeholder>
+                                            <mat-error *ngIf="cardForm.controls.creditCardName.invalid">{{"Card name is
+                                                not
+                                                valid" | translate}}</mat-error>
+                                        </mat-form-field>
+                                        <mat-form-field class="ngx-cc-form-field custom-input">
+                                            <ngx-cc name="cardNumber" formControlName="creditCard"></ngx-cc>
+                                            <mat-placeholder>0000 0000 0000 0000</mat-placeholder>
+                                            <mat-error *ngIf="cardForm.controls.creditCard.invalid">{{"Card number is
+                                                not
+                                                valid" | translate}}</mat-error>
+                                        </mat-form-field>
+                                        <div class="cc-date-cvv-container">
+                                            <mat-form-field class="ngx-cc-form-field custom-input">
+                                                <ngx-cc-date formControlName="creditCardDate"></ngx-cc-date>
+                                                <mat-placeholder>MM / YY</mat-placeholder>
+                                                <mat-error
+                                                    *ngIf="cardForm.controls.creditCardDate.invalid">{{"Expiration
+                                                    date is not valid" | translate}}</mat-error>
+                                            </mat-form-field>
+                                            <mat-form-field class="ngx-cc-form-field custom-input">
+                                                <ngx-cc-cvv formControlName="creditCardCvv"></ngx-cc-cvv>
+                                                <mat-placeholder>CVV</mat-placeholder>
+                                                <mat-error *ngIf="cardForm.controls.creditCardCvv.invalid">{{"Security
+                                                    code
+                                                    is not valid" | translate}}</mat-error>
+                                            </mat-form-field>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="form-check mb-3">
+                                    <input class="form-check-input" type="radio" name="cashorvisa" id="cashorvisa"
+                                        (change)="true; onPaymentMethodChange(cash.value)" #cash value="cash" checked>
+                                    <label class="form-check-label" for="cashorvisa">
+                                        {{'Cash'| translate}}
+                                    </label>
+                                </div>
+                                <mat-error *ngIf="!creditCard.checked && !cash.checked">{{'Please select a payment
+                                    method'| translate}}!</mat-error>
+                                <div class="info mt-4 border-top pt-4 mb-1">
+                                    <div class="form-check mb-3">
+                                        <div>
+                                            <input type="checkbox" class="form-check-input" id="tandc" #agree
+                                                (change)="agreeTouched = true">
+                                            <label class="form-check-label" for="tandc">{{'I have read and agree to the
+                                                website' | translate}} <a href="https://shorturl.at/c3456">{{'terms and
+                                                    conditions' | translate}}</a></label>
+                                        </div>
+                                        <mat-error *ngIf="!agree.checked && agreeTouched">{{'Please agree to our terms
+                                            and conditions' |
+                                            translate}}!</mat-error>
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    <button class="btn btn-primary" (click)="openDialog(); submitCart()"
+                                        [disabled]="detailsForm.invalid || !agree.checked || (cardForm.invalid && creditCard.checked) || products.length == 0">{{'Place
+                                        Order' | translate}}</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

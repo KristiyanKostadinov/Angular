@@ -1,0 +1,85 @@
+<html>
+
+<header>
+  <div *ngIf="typeOfLogin === 'anonymous'">
+    <app-header></app-header>
+  </div>
+  <div *ngIf="typeOfLogin === 'customer'">
+    <app-customer-header></app-customer-header>
+  </div>
+  <div *ngIf="typeOfLogin === 'employee'">
+    <app-employee-header></app-employee-header>
+  </div>
+  <div *ngIf="typeOfLogin === 'admin'">
+    <app-admin-header></app-admin-header>
+  </div>
+</header>
+
+
+<body class="topMargin">
+
+  <div id="famous_pizzas">
+    <h1 style="text-align: center; padding-bottom: 40px; padding-top: 40px;"
+      class="animated pulse  infinite font-poppins">{{'Our Famous Pizzas' |translate}}
+    </h1>
+    <div class="container">
+      <div class="row">
+        <div class="container col12 mb-4">
+          <span>
+            <span>
+              <a [routerLink]="['/menu']" routerLinkActive="router-link-active" id="menu"
+                class="font-poppins">{{'Menu'|translate}}</a>
+            </span>
+          </span>
+          <span class="arrow">&rsaquo;</span>
+          <span>
+            <span class="selected">
+              <strong>{{'Pizzas'|translate}}</strong>
+            </span>
+          </span>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-4 mb-2 d-flex align-items-stretch" *ngFor="let pizza of pizzas">
+          <div class="card">
+            <img [src]="'https://localhost:3000/pizzas/' + pizza.image" class="img-fluid"
+              style="width: 100%;height: auto;">
+            <div class="card-body text-center">
+              <h5 class="card-title" style="text-align: center;">{{pizza.name | translate}}</h5>
+              <div>
+                <small>{{pizza.description | translate}}</small>
+              </div>
+            </div>
+            <div class="card-footer text-center">
+              <button type="button" data-container="body" class="btn btn-dark" onclick="success_msg()"
+                (click)=addtocart(pizza) data-toggle="popover" data-placement="bottom"
+                data-content="Successfully added to your cart!">
+                <i class="fa fa-shopping-cart shoppingCartIcon" aria-hidden="true"></i>
+                <span class="shoppingCartPrice">{{pizza.price}} {{"€" | translate}}</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+<footer>
+  <div class="scrolltop float-right">
+    <i class="fa fa-arrow-up" onclick="topFunction()" id="mybtn"></i>
+  </div>
+
+  <div id="s5">
+    <div class="container text-center">
+      <h1 style="text-align: center; padding-top: 50px;" class="mb-4 display-4 pulsate">{{'Contact Us' |
+        translate}}
+      </h1>
+      <p class="lead">{{'Address' | translate}}: {{companyInfo?.address}}</p>
+      <p class="lead">{{'Phone' | translate}} : {{companyInfo?.phone}}</p>
+      <p class="lead">{{'Email' | translate}} : {{companyInfo?.email}}</p>
+      <a class="btn btn-dark btn-lg mt-3" [routerLink]="['/review']" routerLinkActive="router-link-active">{{'Leave a
+        Review' | translate}}</a>
+    </div>
+  </div>
+</footer>
+
+</html>

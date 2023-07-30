@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Kpuc's Pizzeria</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="./assets/logo/original.png">
+  <script>
+    function topFunction() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+
+    function success_login() {
+      let msg = "<h5>Successfully Created!</h5>";
+      let msg2 = "<h5>Успешно създаден!</h5>"
+      let msg3 = "<h5>Erfolgreich erstellt!!</h5>"
+      let duration = 800;
+      let el = document.createElement("div");
+      el.setAttribute("style", "text-align: center; position: fixed; top: 90%; left: 50%; transform: translate(-50%, -50%); border-radius: 25px; padding: 20px; background-color: #66cc91; color: #232b2b; font-family: 'Concert One', sans-serif");
+
+      if (localStorage.getItem("lang") === "bg") {
+        el.innerHTML = msg2;
+      } else if (localStorage.getItem("lang") === "de") {
+        el.innerHTML = msg3;
+      } else {
+        el.innerHTML = msg;
+      }
+
+      if (window.innerWidth < 768) {
+        el.style.top = "90%";
+      }
+
+      setTimeout(function () {
+        el.parentNode.removeChild(el);
+      }, duration);
+      document.body.appendChild(el);
+    }
+
+    function success_change_of_pass() {
+      let msg = "<h5>Successfully changed your password!</h5>";
+      let msg2 = "<h5>Успешно сменена парола!</h5>"
+      let msg3 = "<h5>Bestellung erfolgreich aufgegeben!</h5>"
+      let duration = 800;
+      let el = document.createElement("div");
+      el.setAttribute("style", "text-align: center; position: fixed; top: 90%; left: 50%; transform: translate(-50%, -50%); border-radius: 25px; padding: 20px; background-color: #66cc91; color: #232b2b; font-family: 'Concert One', sans-serif");
+
+      if (localStorage.getItem("lang") === "bg") {
+        el.innerHTML = msg2;
+      } else if (localStorage.getItem("lang") === "de") {
+        el.innerHTML = msg3;
+      } else {
+        el.innerHTML = msg;
+      }
+
+      if (window.innerWidth < 768) {
+        el.style.top = "90%";
+      }
+
+      setTimeout(function () {
+        el.parentNode.removeChild(el);
+      }, duration);
+      document.body.appendChild(el);
+    }
+
+    function success_create() {
+      let msg = "<h5>Successfully Created!</h5>";
+      let msg2 = "<h5>Успешно създаване!</h5>"
+      let msg3 = "<h5>Bestellung erfolgreich aufgegeben!</h5>"
+      let duration = 800;
+      let el = document.createElement("div");
+      el.setAttribute("style", "text-align: center; position: fixed; top: 90%; left: 50%; transform: translate(-50%, -50%); border-radius: 25px; padding: 20px; background-color: #66cc91; color: #232b2b; font-family: 'Concert One', sans-serif");
+
+      if (localStorage.getItem("lang") === "bg") {
+        el.innerHTML = msg2;
+      } else if (localStorage.getItem("lang") === "de") {
+        el.innerHTML = msg3;
+      } else {
+        el.innerHTML = msg;
+      }
+
+      if (window.innerWidth < 768) {
+        el.style.top = "90%";
+      }
+
+      setTimeout(function () {
+        el.parentNode.removeChild(el);
+      }, duration);
+      document.body.appendChild(el);
+    }
+
+    function success_update() {
+      let msg = "<h5>Successfully Updated!</h5>";
+      let msg2 = "<h5>Успешно актуализиране!</h5>"
+      let msg3 = "<h5>Bestellung erfolgreich aufgegeben!</h5>"
+      let duration = 800;
+      let el = document.createElement("div");
+      el.setAttribute("style", "text-align: center; position: fixed; top: 90%; left: 50%; transform: translate(-50%, -50%); border-radius: 25px; padding: 20px; background-color: #66cc91; color: #232b2b; font-family: 'Concert One', sans-serif");
+
+      if (localStorage.getItem("lang") === "bg") {
+        el.innerHTML = msg2;
+      } else if (localStorage.getItem("lang") === "de") {
+        el.innerHTML = msg3;
+      } else {
+        el.innerHTML = msg;
+      }
+
+      if (window.innerWidth < 768) {
+        el.style.top = "90%";
+      }
+
+      setTimeout(function () {
+        el.parentNode.removeChild(el);
+      }, duration);
+      document.body.appendChild(el);
+    }
+
+
+    function success_msg() {
+      let msg = "<h5>Successfully added to your cart!</h5>";
+      let msg2 = "<h5>Успешно направена поръчка!</h5>"
+      let msg3 = "<h5>Bestellung erfolgreich aufgegeben!</h5>"
+      let duration = 800;
+      let el = document.createElement("div");
+      el.setAttribute("style", "text-align: center; position: fixed; top: 90%; left: 50%; transform: translate(-50%, -50%); border-radius: 25px; padding: 20px; background-color: #66cc91; color: #232b2b; font-family: 'Concert One', sans-serif");
+
+      if (localStorage.getItem("lang") === "bg") {
+        el.innerHTML = msg2;
+      } else if (localStorage.getItem("lang") === "de") {
+        el.innerHTML = msg3;
+      } else {
+        el.innerHTML = msg;
+      }
+
+      if (window.innerWidth < 768) {
+        el.style.top = "90%";
+      }
+
+      setTimeout(function () {
+        el.parentNode.removeChild(el);
+      }, duration);
+      document.body.appendChild(el);
+    }
+
+    // function success_msg() {
+    //   const translateService = window["ngTranslateService"]; // Access the TranslateService from the global scope
+
+    //   translateService.get('successMessage').subscribe((translation) => {
+    //     let msg = `<h5>${translation}</h5>`;
+    //     let duration = 800;
+    //     let el = document.createElement("div");
+    //     el.setAttribute("style", "text-align: center; position: fixed; top: 90%; left: 50%; transform: translate(-50%, -50%); border-radius: 25px; padding: 20px; background-color: #66cc91; color: #232b2b; font-family: 'Concert One', sans-serif");
+    //     el.innerHTML = msg;
+
+    //     if (window.innerWidth < 768) {
+    //       el.style.top = "90%";
+    //     }
+
+    //     setTimeout(function () {
+    //       el.parentNode.removeChild(el);
+    //     }, duration);
+    //     document.body.appendChild(el);
+    //   });
+    // }
+
+
+  </script>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Audiowide&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Concert+One|Oswald|Quicksand&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/1.11.0/i18next.min.js"></script>
+</head>
+
+<body>
+  <app-root></app-root>
+</body>
+
+
+</html>

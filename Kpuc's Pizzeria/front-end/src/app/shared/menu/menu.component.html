@@ -1,0 +1,99 @@
+<html>
+<header>
+    <div *ngIf="typeOfLogin === 'anonymous'">
+        <app-header></app-header>
+    </div>
+    <div *ngIf="typeOfLogin === 'customer'">
+        <app-customer-header></app-customer-header>
+    </div>
+    <div *ngIf="typeOfLogin === 'employee'">
+        <app-employee-header></app-employee-header>
+    </div>
+    <div *ngIf="typeOfLogin === 'admin'">
+        <app-admin-header></app-admin-header>
+    </div>
+</header>
+
+<body class="topMargin">
+    <section>
+        <div class="container">
+            <h1 style="text-align: center; padding-top: 40px; padding-bottom: 40px;"
+                class="animated zoomIn  infinite font-poppins">{{'Menu' |translate}}</h1>
+            <div class="row">
+                <div class="col-md-4 col-lg-4 ">
+                    <div class="card text-center" style="height: auto;" [routerLink]="['/salads']"
+                        routerLinkActive="router-link-active">
+                        <div class="card-header">
+                            <h4 class="font-poppins">{{'Salads' |translate}}</h4>
+                        </div>
+                        <img src=" ../../../assets/menu/salads/salad-menu.jpg" style="height: 400px;" class="img-fluid">
+                        <div class="card-body">
+                            <p class="card-text font-poppins">{{'The most delicious salads' | translate}}!!!!</p>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn-dark" id="salads">
+                                {{'Check more' | translate}}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-lg-4">
+                    <div class="card text-center" [routerLink]="['/pizzas']" routerLinkActive="router-link-active">
+                        <div class="card-header">
+                            <h4 class="font-poppins">{{'Pizzas'|translate}}</h4>
+                        </div>
+                        <img src=" ../../../assets/menu/pizzas/pizza-menu.png" style="height: 400px;" class="img-fluid">
+                        <div class="card-body">
+                            <p class="card-text font-poppins">{{'The most delicious pizzas'|translate}}!!!!</p>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn-dark" id="famousPizza">
+                                {{'Check more'|translate}}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-lg-4">
+                    <div class="card text-center" [routerLink]="['/desserts']" routerLinkActive="router-link-active">
+                        <div class="card-header">
+                            <h4 class="font-poppins">{{'Desserts'|translate}}</h4>
+                        </div>
+                        <img src=" ../../../assets/menu/desserts/dessert-menu.jpg" style="height: 400px;"
+                            class="img-fluid">
+                        <div class="card-body">
+                            <p class="card-text font-poppins">{{'The most delicious desserts'|translate}}!!!!</p>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn-dark" id="desserts">
+                                {{'Check more'|translate}}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+</body>
+<footer>
+    <div class="scrolltop float-right">
+        <i class="fa fa-arrow-up" onclick="topFunction()" id="mybtn"></i>
+    </div>
+
+    <div id="s5">
+        <div class="container text-center">
+            <h1 style="text-align: center; padding-top: 50px;" class="mb-4 display-4 pulsate">{{'Contact Us' |
+                translate}}
+            </h1>
+            <p class="lead">{{'Address' | translate}}: {{companyInfo?.address}}</p>
+            <p class="lead">{{'Phone' | translate}} : {{companyInfo?.phone}}</p>
+            <p class="lead">{{'Email' | translate}} : {{companyInfo?.email}}</p>
+            <a class="btn btn-dark btn-lg mt-3" [routerLink]="['/review']" routerLinkActive="router-link-active">{{'Leave a Review' | translate}}</a>
+        </div>
+    </div>
+</footer>
+
+</html>

@@ -1,0 +1,22 @@
+<html>
+<header>
+    <div *ngIf="typeOfLogin === 'anonymous'">
+        <app-header></app-header>
+    </div>
+    <div *ngIf="typeOfLogin === 'customer'">
+        <app-customer-header></app-customer-header>
+    </div>
+</header>
+
+<body class="topMargin">
+    <div class="header">
+        <div class="pulsate">
+            <h1 style="padding-left: 10%; padding-top:20%;" class="display-3 ">{{'It’s pizza o’clock'|translate}}!!</h1>
+        </div>
+    </div>
+</body>
+<footer>
+
+</footer>
+
+</html>

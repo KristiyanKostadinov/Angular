@@ -1,0 +1,50 @@
+<html>
+<header>
+    <div *ngIf="typeOfLogin ==='admin'">
+        <app-admin-header></app-admin-header>
+    </div>
+    <div *ngIf="typeOfLogin ==='employee'">
+        <app-employee-header></app-employee-header>
+    </div>
+    <div *ngIf="typeOfLogin ==='customer'">
+        <app-employee-header></app-employee-header>
+    </div>
+    <div *ngIf="typeOfLogin ==='anonymous'">
+        <app-employee-header></app-employee-header>
+    </div>
+</header>
+
+<body class="topMargin">
+    <div class="container">
+        <h1 style="text-align: center; padding-top: 40px; padding-bottom: 40px;"
+            class="animated zoomIn  infinite font-poppins">{{"Customers" | translate}}</h1>
+        <div class="scroll">
+            <table>
+                <tr>
+                    <th class="text-center">{{"Username" | translate}}</th>
+                    <th class="text-center">{{"Name" | translate}}</th>
+                    <th class="text-center">{{"Gender" | translate}}</th>
+                    <th class="text-center">{{"Email" | translate}}</th>
+                    <th class="text-center">{{"Phone" | translate}}</th>
+                    <th class="text-center">{{"Remove" | translate}}</th>
+                </tr>
+                <tr *ngFor="let customer of customers | orderBy: 'username'">
+                    <td class="text-center">{{customer.username}}</td>
+                    <td class="text-center">{{customer.name}}</td>
+                    <td class="text-center">{{customer.gender | translate}}</td>
+                    <td class="text-center">{{customer.email}}</td>
+                    <td class="text-center">{{customer.phone}}</td>
+                    <td class="text-center">
+                        <button class="btn btn-danger btn-sm" (click)="deleteCustomer(customer._id);">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+<footer>
+</footer>
+
+</html>

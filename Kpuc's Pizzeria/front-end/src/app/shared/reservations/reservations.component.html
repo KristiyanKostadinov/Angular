@@ -1,0 +1,73 @@
+<html>
+<header>
+    <div *ngIf="typeOfLogin ==='admin'">
+        <app-admin-header></app-admin-header>
+    </div>
+    <div *ngIf="typeOfLogin ==='employee'">
+        <app-employee-header></app-employee-header>
+    </div>
+    <div *ngIf="typeOfLogin ==='customer'">
+        <app-employee-header></app-employee-header>
+    </div>
+    <div *ngIf="typeOfLogin ==='anonymous'">
+        <app-employee-header></app-employee-header>
+    </div>
+</header>
+
+<body class="topMargin">
+    <div class="container">
+        <h1 style="text-align: center; padding-top: 40px; padding-bottom: 40px;"
+            class="animated zoomIn  infinite font-poppins">All Reservations</h1>
+        <div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th class="text-center">Date & Time Of Reservation</th>
+                                    <th class="text-center">Date & Time For Reservation</th>
+                                    <th class="text-center">Name</th>
+                                    <th class="text-center">Email</th>
+                                    <th class="text-center">Number Of People</th>
+                                    <th class="text-center">District</th>
+                                    <th class="text-center">Additional Information</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="text-center">
+                                        <p>None</p>
+                                    </td>
+                                    <td class="text-center">
+                                        <p>None</p>
+                                    </td>
+                                    <td class="text-center">
+                                        <p>None</p>
+                                    </td>
+                                    <td class="text-center">
+                                        <p>None</p>
+                                    </td>
+                                    <td class="text-center">
+                                        <p>None</p>
+                                    </td>
+                                    <td class="text-center">
+                                        <p>None</p>
+                                    </td>
+                                    <td class="text-center">
+                                        <p>None</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<footer>
+
+</footer>
+
+</html>

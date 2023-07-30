@@ -1,0 +1,75 @@
+<html>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark bb" id="xy">
+        <div>
+            <a [routerLink]="['/home']" routerLinkActive="router-link-active"><img src="../../../assets/logo/kpuc.png"
+                    alt="Pizza Logo" class="ml-lg-5 mb-1" width="120" height="auto"></a>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" (click)="isCollapsed = !isCollapsed"
+            [attr.aria-expanded]="!isCollapsed" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngbCollapse]="isCollapsed">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" title="{{'About Us'|translate}}" [routerLink]="['/about-us']"
+                        routerLinkActive="router-link-active" id="aboutUs">{{'About Us'|translate}}</a></li>
+                <li class="nav-item"><a class="nav-link" title="{{'Menu'|translate}}" [routerLink]="['/menu']"
+                        routerLinkActive="router-link-active" id="menu">{{'Menu'|translate}}</a></li>
+                <li class="nav-item"><a class="nav-link" [routerLink]="['/cart']" routerLinkActive="router-link-active"
+                        title="{{'Cart'|translate}}" id="cart">{{'Cart'|translate}}</a>
+                </li>
+                <!-- <li class="nav-item"><a class="nav-link" [routerLink]="['/reservation']"
+                        routerLinkActive="router-link-active" title="{{'Make a reservation'|translate}}"
+                        id="reservation">{{'Reservation'|translate}}</a>
+                </li> -->
+                <li class="nav-item"><a class="nav-link" [routerLink]="['/profile']"
+                        routerLinkActive="router-link-active" title="{{'Profile'|translate}}" id="profile"><i
+                            class="fa fa-user" style="font-size:27px"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link dropdown-toggle" title="{{'Choose Language' | translate}}" id="language"
+                        (click)="setLangSelection()">
+                        <i class="fa fa-language" style="font-size:27px"></i>
+                    </a>
+                    <ul class="languages" *ngIf="langSelection">
+                        <li><a class="nav-link" value="en" title="{{'English'|translate}}" id="en" (click)="englishLang()">{{'English'|translate}}</a>
+                        </li>
+                        <li><a class="nav-link" value="bg" title="{{'Bulgarian'|translate}}" id="bg"
+                                (click)="bulgarianLang()">{{'Bulgarian'|translate}}</a></li>
+                        <li><a class="nav-link" value="de" title="{{'Deutsch'|translate}}" id="de" (click)="deutschLang()">{{'Deutsch'|translate}}</a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- <li class="nav-item">
+                    <select #lang (change)="changeLang(lang.value)">
+                        <option value="en"></option>
+                        <option value="bg"></option>
+                        <option value="de"></option>
+                    </select>
+                </li> -->
+
+                <!-- <li>
+                        <a class="nav-link dropdown-toggle" role="button" id="dropdownMenuLink"
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-language"></i>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <li><a >Option 1</a></li>
+                            <li><a class="dropdown-item" href="#">Option 2</a></li>
+                            <li><a class="dropdown-item" href="#">Option 3</a></li>
+                        </ul>
+                </li> -->
+
+                <li class="nav-item"><a class="nav-link" [routerLink]="['/login']" routerLinkActive="router-link-active"
+                        title="{{'Sign Out' | translate}}" id="profile" (click)="clearLocalStorage()"><i class="fa fa-sign-out"
+                            style="font-size:27px"></i></a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+</body>
+
+</html>

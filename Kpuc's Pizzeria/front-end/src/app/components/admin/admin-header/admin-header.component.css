@@ -1,0 +1,47 @@
+  ul li a {
+    position: relative;
+    padding: 16px 0 5px;
+    margin: 0 25px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: 'Audiowide', cursive;
+    font-size: 16px;
+  }
+
+  @media (min-width: 768px) {
+    .languages {
+      position: fixed;
+      min-width: auto;
+      padding: 3px 0;
+      margin: 0;
+      background-color: #343a40;
+      list-style-type: none;
+      border: none;
+      box-shadow: none;
+      right: 60px;
+      display: inline-block;
+      white-space: nowrap;
+    }
+
+    .adminDropdown {
+      position: fixed;
+      min-width: auto;
+      padding: 3px 0;
+      margin: 0;
+      background-color: #343a40;
+      list-style-type: none;
+      border: none;
+      box-shadow: none;
+      right: 500px;
+      display: inline-block;
+      white-space: nowrap;
+    }
+  }
+
+  #xy {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+  }

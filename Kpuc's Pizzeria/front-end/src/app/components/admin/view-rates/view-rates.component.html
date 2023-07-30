@@ -1,0 +1,58 @@
+<html>
+<header>
+    <div *ngIf="typeOfLogin ==='admin'">
+        <app-admin-header></app-admin-header>
+    </div>
+    <div *ngIf="typeOfLogin ==='employee'">
+        <app-employee-header></app-employee-header>
+    </div>
+    <div *ngIf="typeOfLogin ==='customer'">
+        <app-employee-header></app-employee-header>
+    </div>
+    <div *ngIf="typeOfLogin ==='anonymous'">
+        <app-employee-header></app-employee-header>
+    </div>
+</header>
+
+<body class="topMargin">
+    <div class="container">
+        <h1 style="text-align: center; padding-top: 40px; padding-bottom: 40px;"
+            class="animated zoomIn  infinite font-poppins">{{"All Rates" | translate}}</h1>
+        <div class="scroll">
+            <table>
+                <tr>
+                    <th class="text-center">{{"Date & Time" | translate}}</th>
+                    <th class="text-center">{{"First Name" | translate}}</th>
+                    <th class="text-center">{{"Last Name" | translate}}</th>
+                    <th class="text-center">{{"Address" | translate}}</th>
+                    <th class="text-center">{{"Phone" | translate}}</th>
+                    <th class="text-center">{{"Email" | translate}}</th>
+                    <th class="text-center">{{"Comment" | translate}}</th>
+                    <th class="text-center">{{"Rate" | translate}}</th>
+                </tr>
+                <tr *ngFor="let rate of rates | orderByDate">
+                    <td class="text-center">{{rate.date}}</td>
+                    <td class="text-center">{{rate.name}}</td>
+                    <td class="text-center">{{rate.l_name}}</td>
+                    <td class="text-center">{{rate.address}}</td>
+                    <td class="text-center">{{rate.phone}}</td>
+                    <td class="text-center">{{rate.email}}</td>
+                    <td class="text-center">{{rate.comment}}</td>
+                    <td class="text-center">
+                        <div style="color: orange;" class="mb-4">
+                            <h4>
+                                <ngb-rating [max]="5" [(rate)]="rate.rate" [readonly]="false">
+                                </ngb-rating>
+                            </h4>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+<footer>
+
+</footer>
+
+</html>

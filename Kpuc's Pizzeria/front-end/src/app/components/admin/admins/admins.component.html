@@ -1,0 +1,50 @@
+<html>
+<header>
+    <div *ngIf="typeOfLogin ==='admin'">
+        <app-admin-header></app-admin-header>
+    </div>
+    <div *ngIf="typeOfLogin ==='employee'">
+        <app-employee-header></app-employee-header>
+    </div>
+    <div *ngIf="typeOfLogin ==='customer'">
+        <app-employee-header></app-employee-header>
+    </div>
+    <div *ngIf="typeOfLogin ==='anonymous'">
+        <app-employee-header></app-employee-header>
+    </div>
+</header>
+
+<body class="topMargin">
+    <div class="container">
+        <h1 style="text-align: center; padding-top: 40px; padding-bottom: 40px;"
+            class="animated zoomIn  infinite font-poppins">{{"Admins" | translate}}</h1>
+        <div class="scroll">
+            <table>
+                <tr>
+                    <th class="text-center">{{"Username" | translate}}</th>
+                    <th class="text-center">{{"Name" | translate}}</th>
+                    <th class="text-center">{{"Gender" | translate}}</th>
+                    <th class="text-center">{{"Email" | translate}}</th>
+                    <th class="text-center">{{"Position" | translate}}</th>
+                    <th class="text-center" *ngIf="position==='CEO'">{{"Remove" | translate}}</th>
+                </tr>
+                <tr *ngFor="let admin of admins">
+                    <td class="text-center">{{admin.username}}</td>
+                    <td class="text-center">{{admin.name}}</td>
+                    <td class="text-center">{{admin.gender | translate}}</td>
+                    <td class="text-center">{{admin.email}}</td>
+                    <td class="text-center">{{admin.position | translate}}</td>
+                    <td class="text-center">
+                        <button class="btn btn-danger btn-sm" (click)="deleteAdmin(admin._id)">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+<footer>
+</footer>
+
+</html>

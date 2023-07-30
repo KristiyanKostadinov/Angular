@@ -1,0 +1,74 @@
+[
+  {
+    "name": "Boneless Buffalo Chicken Salad",
+    "image": "boneless.avif",
+    "description": "Hand-breaded crispy chicken tossed in spicy Buffalo sauce, bacon, bleu cheese crumbles, pico, tortilla strips with house-made ranch.",
+    "price": 13.99,
+    "quantity": 1,
+    "type": "salad"
+  },
+  {
+    "name": "Quesadilla Explosion Salad",
+    "image": "explosion.avif",
+    "description": "Grilled chicken, cheese, tomatoes, corn & black bean salsa, tortilla strips, cilantro with citrus-balsamic. Topped with our cheese quesadillas.",
+    "price": 8.99,
+    "quantity": 1,
+    "type": "salad"
+  },
+  {
+    "name": "Santa Fe Crispers® Salad",
+    "image": "santa-fe.avif",
+    "description": "Hand-breaded Chicken Crispers, pico, avocado, cilantro, tortilla strips, house-made ranch & a drizzle of spicy Santa Fe sauce.",
+    "price": 14.99,
+    "quantity": 1,
+    "type": "salad"
+  },
+  {
+    "name": "Santa Fe Chicken Salad",
+    "image": "santa-fe-chicken.avif",
+    "description": "Santa Fe Chicken Salad with Tangy Lime Dressing is a fresh, hearty salad packed with black beans, roasted corn and tortilla strips tossed with a zesty lime dressing!",
+    "price": 12.99,
+    "quantity": 1,
+    "type": "salad"
+  },
+  {
+    "name": "Chili`s House Salad",
+    "image": "chili.avif",
+    "description": "Tomatoes, red onions, cucumbers, shredded cheese, garlic croutons with your choice of dressing.",
+    "price": 10.99,
+    "quantity": 1,
+    "type": "salad"
+  },
+  {
+    "name": "Chicken House Salad",
+    "image": "chicken.avif",
+    "description": "The Chicken House Salad combines all the basics of a great house salad--greens, tomatoes, cucumbers and croutons--all tossed with a tangy red-wine vinaigrette",
+    "price": 8.99,
+    "quantity": 1,
+    "type": "salad"
+  },
+  {
+    "name": "Shrimp House Salad",
+    "image": "shrimp.avif",
+    "description": "Shrimp, tomatoes, red onion, cucumber, shredded cheese, garlic croutons with choice of dressing.",
+    "price": 7.99,
+    "quantity": 1,
+    "type": "salad"
+  },
+  {
+    "name": "Ancho Salmon House Salad",
+    "image": "ancho.avif",
+    "description": "Seared chile-rubbed Atlantic salmon, tomatoes, red onion, cucumber, shredded cheese, garlic croutons with choice of dressing.",
+    "price": 9.99,
+    "quantity": 1,
+    "type": "salad"
+  },
+  {
+    "name": "Chicken Caesar Salad",
+    "image": "caesar.avif",
+    "description": "This chicken caesar salad features lean seasoned protein seared until tender and paired with romaine lettuce, creamy dressing, and crunchy croutons. It’s an easy and delicious option for lunch or dinner.",
+    "price": 10.99,
+    "quantity": 1,
+    "type": "salad"
+  }
+]

@@ -1,0 +1,95 @@
+.font-poppins {
+    font-family: 'Concert One', sans-serif;
+    color: #2196f3;
+}
+
+.font-poppins:hover {
+    color: #0d47a1;
+}
+
+.pulsate {
+    animation: pulsate 5s linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes pulsate {
+    0% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1.0;
+    }
+
+    100% {
+        opacity: 0.5;
+    }
+}
+
+#s5 {
+    width: 100%;
+    height: 400px;
+    background-image: url("../../../assets/menu/pizzas/61.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    position: relative;
+    background-attachment: fixed;
+    color: #ffffff;
+    font-family: 'Pacifico', cursive;
+    font-weight: bolder;
+    text-shadow: 5px 5px 10px black;
+    font-size: larger;
+}
+
+
+.fontChildren {
+    font-size: 15px;
+}
+
+.shoppingCartIcon {
+    font-size: 20px;
+}
+
+.trashIcon {
+    font-size: 10px;
+}
+
+#mybtn {
+    /*    display: none;*/
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+    border: none;
+    color: black;
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#mybtn:hover {
+    color: #00abff;
+}
+
+.bg {
+    /* background-color: #303641; */
+    background-image: url("../../../assets/backgrounds/loginBg.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    position: relative;
+    background-attachment: fixed;
+}
+
+.container-class {
+    max-height: 250px;
+    overflow-y: scroll;
+}
+
+
+.topMargin {
+    margin-top: 100px;
+}
+
+.custom-input {
+    width: 300px;
+}

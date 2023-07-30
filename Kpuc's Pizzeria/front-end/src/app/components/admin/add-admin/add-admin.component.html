@@ -1,0 +1,128 @@
+<html>
+
+<head></head>
+<header>
+    <div *ngIf="typeOfLogin === 'anonymous'">
+        <app-header></app-header>
+    </div>
+    <div *ngIf="typeOfLogin === 'customer'">
+        <app-customer-header></app-customer-header>
+    </div>
+    <div *ngIf="typeOfLogin === 'employee'">
+        <app-employee-header></app-employee-header>
+    </div>
+    <div *ngIf="typeOfLogin === 'admin'">
+        <app-admin-header></app-admin-header>
+    </div>
+</header>
+
+<body class="topMargin">
+    <div class="container">
+        <h1 style="text-align: center; padding-top: 40px; padding-bottom: 40px;"
+            class="animated zoomIn  infinite font-poppins">{{"Add Admin" | translate}}</h1>
+        <form [formGroup]="adminForm" class="center" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="position">{{"Position" | translate}}</label>
+                <select class="form-control" id="position" name="position" formControlName="position">
+                    <option value="COO">{{"COO" | translate}}</option>
+                    <option value="CFO">{{"CFO" | translate}}</option>
+                    <option value="CTO">{{"CTO" | translate}}</option>
+                    <option value="CMO">{{"CMO" | translate}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="username">{{"Username" | translate}}</label>
+                <input type="text" class="form-control" id="username" name="username" formControlName="username">
+                <div
+                    *ngIf="adminForm.get('username')!.invalid && (adminForm.get('username')!.dirty || adminForm.get('username')!.touched)">
+                    <div *ngIf="adminForm.get('username')!.errors?.required" class="text-danger">{{"Username is
+                        required." |
+                        translate}}</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="name">{{"Name" | translate}}</label>
+                <input type="text" class="form-control" id="name" name="name" formControlName="name">
+                <div
+                    *ngIf="adminForm.get('name')!.invalid && (adminForm.get('name')!.dirty || adminForm.get('name')!.touched)">
+                    <div *ngIf="adminForm.get('name')!.errors?.required" class="text-danger">{{"Name is
+                        required." |
+                        translate}}</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>{{"Gender" | translate}}</label>
+                <div class="d-flex">
+                    <div class="form-check mr-3">
+                        <input class="form-check-input" type="radio" id="male" name="gender" value="male"
+                            formControlName="gender">
+                        <label class="form-check-label" for="male">
+                            {{ "Male" | translate}}
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" id="female" name="gender" value="female"
+                            formControlName="gender">
+                        <label class="form-check-label" for="female">
+                            {{ "Female" | translate}}
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email">{{"Email" | translate}}</label>
+                <input type="email" class="form-control" id="email" name="email" formControlName="email">
+                <div
+                    *ngIf="adminForm.get('email')!.invalid && (adminForm.get('email')!.dirty || adminForm.get('email')!.touched)">
+                    <div *ngIf="adminForm.get('email')!.errors?.required" class="text-danger">{{"Email is
+                        required." |
+                        translate}}</div>
+                </div>
+            </div>
+            <div class="form-outline mb-4">
+                <label for="password">{{"Password" | translate}}</label>
+                <input type="password" id="password" class="form-control" formControlName="password" #passwordInput>
+                <div *ngIf="adminForm.get('password')?.touched && adminForm.get('password')?.invalid"
+                    class="text-danger">
+                    <span *ngIf="adminForm.get('password')?.errors?.required">{{"Password is
+                        required." | translate}}</span>
+                </div>
+            </div>
+
+            <div class="form-outline mb-4">
+                <label for="password">{{"Repeat Password" | translate}}</label>
+                <input type="password" id="repeatPassword" class="form-control" formControlName="repeatPassword"
+                    #repeatPasswordInput required>
+                <div class="text-danger">
+                    <span
+                        *ngIf="passwordInput!.value !== repeatPasswordInput!.value && !adminForm.get('repeatPassword')?.errors?.required">
+                        {{"Passwords should be identical." | translate}}</span>
+                </div>
+                <div class="text-danger"
+                    *ngIf="adminForm.get('repeatPassword')?.touched && adminForm.get('repeatPassword')?.invalid">
+                    <span *ngIf="adminForm.get('repeatPassword')?.errors?.required">
+                        {{"Repeat Password is required." | translate}}</span>
+                </div>
+            </div>
+            <div class="text-center">
+                <button *ngIf="adminForm.get('position')!.value === 'COO'" type="submit" class="btn btn-primary"
+                    (click)="addCOO(adminForm.value)" onclick="success_create()">{{"Add COO" |
+                    translate}}</button>
+                <button *ngIf="adminForm.get('position')!.value === 'CFO'" type="submit" class="btn btn-primary"
+                    (click)="addCFO(adminForm.value)" onclick="success_create()">{{"Add CFO" |
+                    translate}}</button>
+                <button *ngIf="adminForm.get('position')!.value === 'CTO'" type="submit" class="btn btn-primary"
+                    (click)="addCTO(adminForm.value)" onclick="success_create()">{{"Add CTO" |
+                    translate}}</button>
+                <button *ngIf="adminForm.get('position')!.value === 'CMO'" type="submit" class="btn btn-primary"
+                    (click)="addCMO(adminForm.value)" onclick="success_create()">{{"Add CMO" |
+                    translate}}</button>
+            </div>
+        </form>
+    </div>
+</body>
+<footer>
+
+</footer>
+
+</html>

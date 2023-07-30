@@ -1,0 +1,104 @@
+<html>
+
+<body class="text-center bg">
+    <div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+        <div class="container">
+            <div class="flags">
+                <div class="language-selector">
+                    <img src="../../../../assets/flags/en.png" alt="{{'English'| translate}}" id="englishFlag"
+                        (click)="setEN()">
+                    <img src="../../../../assets/flags/bg.png" alt="{{'Bulgarian'| translate}}" id="bulgarianFlag"
+                        (click)="setBG()">
+                    <img src="../../../../assets/flags/de.png" alt="{{'German'| translate}}" id="germanFlag"
+                        (click)="setDE()">
+                </div>
+            </div>
+            <div>
+                <div class="row align-items-center">
+                    <div class="col-lg-6 mb-3">
+                        <img class="mb-5" src="../../../assets/logo/kpuc.png" alt="Logo" width="300" height="250">
+                        <p class="white">
+                            <span class="font-poppins"> {{'Kpuc`s Pizzeria' | translate}}</span> {{'is a beloved
+                            pizzeria in Bulgaria. It was founded by the Kris`s family in 1995 and has been serving
+                            delicious
+                            pizza to the local community ever since. The family has a long history in the restaurant
+                            business, and they brought their passion for food and their love of pizza to their pizzeria.
+                            They spent years perfecting their recipes, experimenting with different ingredients, and
+                            perfecting their dough to create the perfect pizza.' | translate}}
+                        </p>
+                    </div>
+
+                    <div class="col-lg-6 mb-5 mb-lg-0 ">
+                        <h1 class=" ls-tight white">
+                            {{'The Best Pizzeria' | translate}} <br />
+                            <span class="font-poppins">{{'in town' | translate}}</span>
+                        </h1>
+                        <div class="card bgCard">
+                            <div class="card-body py-5 px-md-5">
+                                <form [formGroup]="loginForm" (ngSubmit)="login()">
+                                    <div class="mb-4">
+                                        <h3 class="font-poppins">{{'Login' | translate}}</h3>
+                                    </div>
+                                    <div class="form-outline mb-4">
+                                        <input type="text" id="username" class="form-control" name="username"
+                                            formControlName="username" placeholder="{{'Username' | translate}}" />
+                                        <div class="text-danger"
+                                            *ngIf="loginForm.get('username')?.touched && loginForm.get('username')?.invalid">
+                                            <span *ngIf="loginForm.get('username')?.errors?.required">{{'Username
+                                                is required.' | translate}}</span>
+                                            <span *ngIf="loginForm.get('username')?.errors?.minlength ">{{"Username must
+                                                be at least 3 characters long."| translate}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-outline mb-4">
+                                        <div class="input-group">
+                                            <input [type]="fieldTextType ? 'text' : 'password'" id="password"
+                                                class="form-control" placeholder="{{'Password'| translate}}"
+                                                name="password" formControlName="password" />
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fa" [ngClass]="{
+                                                        'fa-eye-slash': !fieldTextType,
+                                                        'fa-eye': fieldTextType
+                                                      }" (click)="toggleFieldTextType()"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="text-danger">
+                                            <div class="text-danger"
+                                                *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid">
+                                                <span *ngIf="loginForm.get('password')?.errors?.required">
+                                                    {{"Password is required."| translate}}</span>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-dark btn-block" [disabled]="loginForm.invalid">
+                                        {{'Login' | translate}}
+                                    </button>
+                                    <div class="text-right mb-3">
+                                        <small><a [routerLink]="['/forgot-password']"
+                                                routerLinkActive="router-link-active">{{'Forgot Password' |
+                                                translate}}</a></small>
+                                    </div>
+                                    <div class="text-center">
+                                        <h6 class="mb-3 white">{{'Don`t have an account' | translate}}?</h6>
+                                        <p>
+                                            <a (click)="signUp()"><b class="font-poppins link-style">{{'Sign
+                                                    Up' | translate}} </b> </a>
+                                            <i class="white">{{'or' | translate}}</i>
+                                            <a (click)="anonymous()"><b class="font-poppins link-style">
+                                                    {{'Continue without an account' | translate}} </b> </a>
+                                        </p>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

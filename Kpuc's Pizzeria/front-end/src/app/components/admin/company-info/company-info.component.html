@@ -1,0 +1,79 @@
+<html>
+
+<head></head>
+<header>
+    <div *ngIf="typeOfLogin === 'anonymous'">
+        <app-header></app-header>
+    </div>
+    <div *ngIf="typeOfLogin === 'customer'">
+        <app-customer-header></app-customer-header>
+    </div>
+    <div *ngIf="typeOfLogin === 'employee'">
+        <app-employee-header></app-employee-header>
+    </div>
+    <div *ngIf="typeOfLogin === 'admin'">
+        <app-admin-header></app-admin-header>
+    </div>
+</header>
+
+<body class="topMargin">
+    <div class="container">
+        <h1 style="text-align: center; padding-top: 40px; padding-bottom: 40px;"
+            class="animated zoomIn  infinite font-poppins">{{"Company Info" | translate}}</h1>
+        <form [formGroup]="companyInfoForm" class="center" enctype="multipart/form-data">
+            <div class="form-group">
+                <input type="text" placeholder="{{companyInfo.name}}" class="form-control" id="name" name="name"
+                    formControlName="name" readonly>
+                <!-- <div
+                    *ngIf="companyInfoForm.get('name')!.invalid && (companyInfoForm.get('name')!.dirty || companyInfoForm.get('name')!.touched)">
+                    <div *ngIf="companyInfoForm.get('name')!.errors?.required" class="text-danger">{{"Name is
+                        required." |
+                        translate}}</div>
+                </div> -->
+            </div>
+            <div class="form-group">
+                <input type="email" placeholder="{{companyInfo.email}}" class="form-control" id="email" name="email"
+                    formControlName="email">
+                <div
+                    *ngIf="companyInfoForm.get('email')!.invalid && (companyInfoForm.get('email')!.dirty || companyInfoForm.get('email')!.touched)">
+                    <div *ngIf="companyInfoForm.get('email')!.errors?.required" class="text-danger">{{"Email is
+                        required." |
+                        translate}}</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="tel" placeholder="{{companyInfo.phone}}" class="form-control" id="phone" name="phone"
+                    formControlName="phone">
+                <div
+                    *ngIf="companyInfoForm.get('phone')!.invalid && (companyInfoForm.get('phone')!.dirty || companyInfoForm.get('phone')!.touched)">
+                    <div *ngIf="companyInfoForm.get('phone')!.errors?.required" class="text-danger">{{"Phone is
+                        required." |
+                        translate}}</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="text" placeholder="{{companyInfo.address}}" class="form-control" id="address"
+                    name="address" formControlName="address">
+                <div
+                    *ngIf="companyInfoForm.get('address')!.invalid && (companyInfoForm.get('address')!.dirty || companyInfoForm.get('address')!.touched)">
+                    <div *ngIf="companyInfoForm.get('address')!.errors?.required" class="text-danger">{{"Address is
+                        required." |
+                        translate}}</div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary"
+                    [disabled]="companyInfoForm.get('email')!.invalid || companyInfoForm.get('phone')!.invalid || companyInfoForm.get('address')!.invalid"
+                    (click)="updateCompanyInfo()" onclick="success_update()">{{"Update Company Information" |
+                    translate}}</button>
+
+            </div>
+        </form>
+    </div>
+</body>
+<footer>
+
+</footer>
+
+</html>

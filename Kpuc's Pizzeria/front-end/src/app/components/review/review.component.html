@@ -1,0 +1,78 @@
+<html>
+
+<head></head>
+<header>
+    <div *ngIf="typeOfLogin === 'anonymous'">
+        <app-header></app-header>
+    </div>
+    <div *ngIf="typeOfLogin === 'customer'">
+        <app-customer-header></app-customer-header>
+    </div>
+    <div *ngIf="typeOfLogin === 'employee'">
+        <app-employee-header></app-employee-header>
+    </div>
+    <div *ngIf="typeOfLogin === 'admin'">
+        <app-admin-header></app-admin-header>
+    </div>
+</header>
+
+<body class="topMargin">
+    <div class="container">
+        <h1 style="text-align: center; padding-top: 40px; padding-bottom: 40px;"
+            class="animated zoomIn  infinite font-poppins">{{"Leave a Review" | translate}}</h1>
+        <form [formGroup]="reviewForm" class="center" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="name">{{"Name" | translate}}</label>
+                <input type="text" class="form-control" id="name" name="name" formControlName="name">
+                <div
+                    *ngIf="reviewForm.get('name')!.invalid && (reviewForm.get('name')!.dirty || reviewForm.get('name')!.touched)">
+                    <div *ngIf="reviewForm.get('name')!.errors?.required" class="text-danger">{{"Name is
+                        required." |
+                        translate}}</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email">{{"Email" | translate}}</label>
+                <input type="email" class="form-control" id="email" name="email" formControlName="email">
+                <div
+                    *ngIf="reviewForm.get('email')!.invalid && (reviewForm.get('email')!.dirty || reviewForm.get('email')!.touched)">
+                    <div *ngIf="reviewForm.get('email')!.errors?.required" class="text-danger">{{"Email is
+                        required." |
+                        translate}}</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="rating">{{'Rate' | translate}}</label>
+                <div style="color: orange;" class="mb-4">
+                    <h1>
+                        <ngb-rating [max]="5" [(rate)]="currentRating" [readonly]="false" name="rate" id="rate"
+                            formControlName="rate">
+                        </ngb-rating>
+                    </h1>
+                </div>
+            </div>
+            <div class="form-group ">
+                <label for="comment">{{'Comment' | translate}}</label>
+                <textarea class="form-control" id="comment" name="comment" formControlName="comment" cols="30"
+                    rows="5"></textarea>
+                <div
+                    *ngIf="reviewForm.get('comment')!.invalid && (reviewForm.get('comment')!.dirty || reviewForm.get('comment')!.touched)">
+                    <div *ngIf="reviewForm.get('comment')!.errors?.required" class="text-danger">{{"Comment is
+                        required" |
+                        translate}}</div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary" [disabled]="reviewForm.invalid"
+                    (click)="addReview()">{{"Add Review" |
+                    translate}}</button>
+            </div>
+        </form>
+    </div>
+</body>
+<footer>
+
+</footer>
+
+</html>

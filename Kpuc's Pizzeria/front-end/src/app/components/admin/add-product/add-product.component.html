@@ -1,0 +1,99 @@
+<html>
+
+<head></head>
+<header>
+    <div *ngIf="typeOfLogin === 'anonymous'">
+        <app-header></app-header>
+    </div>
+    <div *ngIf="typeOfLogin === 'customer'">
+        <app-customer-header></app-customer-header>
+    </div>
+    <div *ngIf="typeOfLogin === 'employee'">
+        <app-employee-header></app-employee-header>
+    </div>
+    <div *ngIf="typeOfLogin === 'admin'">
+        <app-admin-header></app-admin-header>
+    </div>
+</header>
+
+<body class="topMargin">
+    <div class="container">
+        <h1 style="text-align: center; padding-top: 40px; padding-bottom: 40px;"
+            class="animated zoomIn  infinite font-poppins">{{"Add Product" | translate}}</h1>
+        <form [formGroup]="productForm" class="center" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="type">{{"Product Type" | translate}}</label>
+                <select class="form-control" id="type" name="type" formControlName="type">
+                    <option value="pizza">{{"Pizza" | translate}}</option>
+                    <option value="salad">{{"Salad" | translate}}</option>
+                    <option value="dessert">{{"Dessert" | translate}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="name">{{"Product Name" | translate}}</label>
+                <input type="text" class="form-control" id="name" name="name" formControlName="name">
+                <div
+                    *ngIf="productForm.get('name')!.invalid && (productForm.get('name')!.dirty || productForm.get('name')!.touched)">
+                    <div *ngIf="productForm.get('name')!.errors?.required" class="text-danger">{{"Product Name is
+                        required" |
+                        translate}}</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="price">{{"Product Price" | translate}}</label>
+                <input type="number" min="1" class="form-control" id="price" name="price" formControlName="price">
+                <div
+                    *ngIf="productForm.get('price')!.invalid && (productForm.get('price')!.dirty || productForm.get('price')!.touched)">
+                    <div *ngIf="productForm.get('price')!.errors?.required" class="text-danger">{{"Product Price
+                        is required" |
+                        translate}}</div>
+                    <div *ngIf="productForm.get('price')!.errors?.min" class="text-danger">{{"Product Price must
+                        be at least 1" |
+                        translate}}</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="image">{{"Image" | translate}}</label>
+                <br>
+                <input type="file" id="image" name="image" (change)="onFileChange($event)" accept=".jpg, .png">
+                <div
+                    *ngIf="productForm.get('image')!.invalid && (productForm.get('image')!.dirty || productForm.get('image')!.touched)">
+                    <div *ngIf="productForm.get('image')!.errors?.required" class="text-danger">{{"Product Image
+                        is required" |
+                        translate}}</div>
+                    <div *ngIf="productForm.get('image')!.errors?.invalidFileType" class="text-danger">{{"Invalid
+                        file type. Only
+                        JPEG
+                        and PNG images are allowed" | translate}}</div>
+                </div>
+            </div>
+            <div class="form-group mb-4">
+                <label for="description">{{'Description' | translate}}</label>
+                <textarea class="form-control" id="description" name="description" formControlName="description"
+                    cols="30" rows="5" placeholder="{{'Description' | translate}}"></textarea>
+                <div
+                    *ngIf="productForm.get('description')!.invalid && (productForm.get('description')!.dirty || productForm.get('description')!.touched)">
+                    <div *ngIf="productForm.get('description')!.errors?.required" class="text-danger">{{"Description is
+                        required" |
+                        translate}}</div>
+                </div>
+            </div>
+            <div class="text-center">
+                <button *ngIf="productForm.get('type')!.value === 'pizza'" type="submit" class="btn btn-primary"
+                    (click)="addPizza()" onclick="success_create()">{{"Add Pizza" | translate}}</button>
+
+                <button *ngIf="productForm.get('type')!.value === 'salad'" type="submit" class="btn btn-primary"
+                    (click)="addSalad()" onclick="success_create()">{{"Add Salad" | translate}}</button>
+
+                <button *ngIf="productForm.get('type')!.value === 'dessert'" type="submit" class="btn btn-primary"
+                    (click)="addDessert()" onclick="success_create()">{{"Add Dessert" |
+                    translate}}</button>
+            </div>
+        </form>
+    </div>
+</body>
+<footer>
+
+</footer>
+
+</html>

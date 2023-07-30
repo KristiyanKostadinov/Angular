@@ -1,0 +1,133 @@
+<html>
+<header>
+    <div *ngIf="typeOfLogin ==='admin'">
+        <app-admin-header></app-admin-header>
+    </div>
+    <div *ngIf="typeOfLogin ==='employee'">
+        <app-employee-header></app-employee-header>
+    </div>
+    <div *ngIf="typeOfLogin ==='customer'">
+        <app-employee-header></app-employee-header>
+    </div>
+    <div *ngIf="typeOfLogin ==='anonymous'">
+        <app-employee-header></app-employee-header>
+    </div>
+</header>
+
+<body class="topMargin">
+    <div class="container">
+        <h1 style="text-align: center; padding-top: 40px; padding-bottom: 40px;"
+            class="animated zoomIn  infinite font-poppins">{{"All Orders" | translate}}</h1>
+        <div class="scroll">
+            <table>
+                <tr>
+                    <th class="text-center">{{"Date & Time" | translate}}</th>
+                    <th class="text-center">{{"First Name" | translate}}</th>
+                    <th class="text-center">{{"Last Name" | translate}}</th>
+                    <th class="text-center" *ngIf="position !== 'cook'">{{"Address" | translate}}</th>
+                    <th class="text-center" *ngIf="position !== 'cook'">{{"Phone" | translate}}</th>
+                    <th class="text-center" *ngIf="position !== 'cook' && position !== 'delivery driver'">{{"Email" |
+                        translate}}</th>
+                    <th class="text-center">{{"Ordered Items" | translate}}</th>
+                    <th class="text-center">{{"Sum" | translate}}</th>
+                    <th class="text-center">{{"Description" | translate}}</th>
+                    <th class="text-center" *ngIf="position !== 'cook'">{{"Paid By" | translate}}</th>
+                    <th class="text-center">{{"Status" | translate}}</th>
+                    <th class="text-center" *ngIf="position !== 'cook' && position !== 'delivery driver'">{{"Cook" |
+                        translate}}</th>
+                    <th class="text-center" *ngIf="position !== 'cook' && position !== 'delivery driver'">{{"Delivery
+                        Driver" | translate}}</th>
+                    <th class="text-center" *ngIf="position !== 'delivery driver' && position !== 'manager'">{{"Accept"
+                        | translate}}</th>
+                    <th class="text-center" *ngIf="position !== 'delivery driver' && position !== 'manager'">{{"Ready" |
+                        translate}}</th>
+                    <th class="text-center" *ngIf="position !== 'delivery driver' && position !== 'manager'">{{"Deny" |
+                        translate}}</th>
+                    <th class="text-center" *ngIf="position !== 'cook' && position !== 'manager'">{{"Picked up" |
+                        translate}}</th>
+                    <th class="text-center" *ngIf="position !== 'cook' && position !== 'manager'">{{"Delivered" |
+                        translate}}</th>
+                </tr>
+                <tr *ngFor="let order of orders | orderByDate">
+                    <td class="text-center">
+                        <p>{{order.date}}</p>
+                    </td>
+                    <td class="text-center">
+                        <p>{{order.name}}</p>
+                    </td>
+                    <td class="text-center">
+                        <p>{{order.l_name}}</p>
+                    </td>
+                    <td class="text-center" *ngIf="position !== 'cook'">
+                        <p>{{order.address}}</p>
+                    </td>
+                    <td class="text-center" *ngIf="position !== 'cook'">
+                        <p>{{order.phone}}</p>
+                    </td>
+                    <td class="text-center" *ngIf="position !== 'cook' && position !== 'delivery driver'">
+                        <p>{{order.email}}</p>
+                    </td>
+                    <td class="text-center">
+                        <p>{{order.ordered_items | translate}}</p>
+                    </td>
+                    <td class="text-center">
+                        <p>{{order.price}} {{'€' | translate}}</p>
+                    </td>
+                    <td class="text-center">
+                        <p>{{order.description | translate}}</p>
+                    </td>
+                    <td class="text-center" *ngIf="position !== 'cook'">
+                        <p>{{order.paid_by | translate}}</p>
+                    </td>
+                    <td class="text-center">
+                        <p>{{order.status | translate}}</p>
+                    </td>
+                    <td class="text-center" *ngIf="position !== 'cook' && position !== 'delivery driver'">
+                        <p>{{"Accepted by:" | translate}} {{order.accepted_by | translate}}, {{"at"|translate}}: {{order.accepted_at}}
+                        </p>
+                        <p>{{"Ready at:" | translate}} {{order.ready_at}}, by: {{order.accepted_by | translate}}
+                        </p>
+                    </td>
+                    <td class="text-center" *ngIf="position !== 'cook' && position !== 'delivery driver'">
+                        <p>{{"Picked up by:" | translate}} {{order.delivered_by}}, {{"at"|translate}}: {{order.picked_up_at |
+                            translate}}
+                        </p>
+                        <p>{{"Delivered by:" | translate}} {{order.delivered_by}}, {{"at"|translate}}: {{order.delivered_at |
+                            translate}}
+                        </p>
+                    </td>
+                    <td class="text-center" *ngIf="position !== 'delivery driver' && position !== 'manager'">
+                        <button class="btn btn-primary btn-sm" (click)="acceptOrder(order._id)">
+                            <i class="fa fa-check"></i>
+                        </button>
+                    </td>
+                    <td class="text-center" *ngIf="position !== 'delivery driver' && position !== 'manager'">
+                        <button class="btn btn-success btn-sm" (click)="completedOrder(order._id)">
+                            <i class="fa fa-check"></i>
+                        </button>
+                    </td>
+                    <td class="text-center" *ngIf="position !== 'delivery driver' && position !== 'manager'">
+                        <button class="btn btn-danger btn-sm" (click)="deleteOrder(order._id)">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                    </td>
+                    <td class="text-center" *ngIf="position !== 'cook' && position !== 'manager'">
+                        <button class="btn btn-success btn-sm" (click)="pickedUpOrder(order._id)">
+                            <i class="fa fa-truck"></i>
+                        </button>
+                    </td>
+                    <td class="text-center" *ngIf="position !== 'cook' && position !== 'manager'">
+                        <button class="btn btn-primary btn-sm" (click)="deliveredOrder(order._id)">
+                            <i class="fa fa-check"></i>
+                        </button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+<footer>
+
+</footer>
+
+</html>

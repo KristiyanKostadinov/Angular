@@ -1,0 +1,76 @@
+<html>
+<header>
+    <div *ngIf="typeOfLogin ==='admin'">
+        <app-admin-header></app-admin-header>
+    </div>
+    <div *ngIf="typeOfLogin ==='employee'">
+        <app-employee-header></app-employee-header>
+    </div>
+    <div *ngIf="typeOfLogin ==='customer'">
+        <app-employee-header></app-employee-header>
+    </div>
+    <div *ngIf="typeOfLogin ==='anonymous'">
+        <app-employee-header></app-employee-header>
+    </div>
+</header>
+
+<body class="topMargin">
+    <div class="container">
+        <h1 style="text-align: center; padding-top: 40px; padding-bottom: 40px;"
+            class="animated zoomIn  infinite font-poppins">{{"All Products" | translate}}</h1>
+        <div class="scroll">
+            <table>
+                <tr>
+                    <th class="text-center">{{"Name" | translate}}</th>
+                    <th class="text-center">{{"Description" | translate}}</th>
+                    <th class="text-center">{{"Price" | translate}}</th>
+                    <th class="text-center">{{"Remove" | translate}}</th>
+                </tr>
+                <tr *ngFor="let product of allProducts">
+                    <ng-container>
+                        <td class="text-center">{{product.name | translate}}</td>
+                        <td class="text-center">{{product.description | translate}}</td>
+                        <td class="text-center">{{product.price | translate}} {{"€" | translate}}</td>
+                        <!-- <td class="text-center">
+                            <button class="btn btn-primary btn-sm" [routerLink]="['/edit-product']" routerLinkActive="router-link-active">
+                                <i class="fa fa-edit"></i>
+                            </button>
+                        </td> -->
+
+                        <td class="text-center" *ngIf="product.type ==='pizza'">
+                            <button class="btn btn-danger btn-sm" (click)="deletePizza(product._id);">
+                                <i class="fa fa-minus"></i>
+                            </button>
+                        </td>
+                        <td class="text-center" *ngIf="product.type ==='salad'">
+                            <button class="btn btn-danger btn-sm" (click)="deleteSalad(product._id);">
+                                <i class="fa fa-minus"></i>
+                            </button>
+                        </td>
+                        <td class="text-center" *ngIf="product.type ==='dessert'">
+                            <button class="btn btn-danger btn-sm" (click)="deleteDessert(product._id);">
+                                <i class="fa fa-minus"></i>
+                            </button>
+                        </td>
+                        <!-- <button class="btn btn-danger btn-sm" (click)="deleteProduct(product._id, 'pizza')">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <button class="btn btn-danger btn-sm" (click)="deleteProduct(product._id, 'salad')">
+                            <i class="fa fa-minus"></i>
+                        </button>
+
+                        <button class="btn btn-danger btn-sm" (click)="deleteProduct(product._id, 'dessert')">
+                            <i class="fa fa-minus"></i>
+                        </button> -->
+
+                    </ng-container>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+<footer>
+
+</footer>
+
+</html>

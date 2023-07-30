@@ -1,0 +1,186 @@
+<html>
+
+<body class="text-center bg">
+    <div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+        <div class="container">
+            <div class="flags">
+                <div class="language-selector">
+                    <img src="../../../../assets/flags/en.png" alt="{{'English'| translate}}" id="englishFlag"
+                        (click)="setEN()">
+                    <img src="../../../../assets/flags/bg.png" alt="{{'Bulgarian'| translate}}" id="bulgarianFlag"
+                        (click)="setBG()">
+                    <img src="../../../../assets/flags/de.png" alt="{{'German'| translate}}" id="germanFlag"
+                        (click)="setDE()">
+                </div>
+            </div>
+            <div>
+                <div class="row align-items-center">
+                    <div class="col-lg-6 mb-3">
+                        <img class="mb-5" src="../../../assets/logo/kpuc.png" alt="Logo" width="300" height="250">
+                        <p class="white">
+                            <span class="font-poppins"> {{'Kpuc`s Pizzeria' | translate}}</span> {{'is a beloved
+                            pizzeria in Bulgaria. It was founded by the Kris`s family in 1995 and has been serving delicious
+                            pizza to the local community ever since. The family has a long history in the restaurant
+                            business, and they brought their passion for food and their love of pizza to their pizzeria.
+                            They spent years perfecting their recipes, experimenting with different ingredients, and
+                            perfecting their dough to create the perfect pizza.' | translate}}
+                        </p>
+                    </div>
+                    <div class="col-lg-6 mb-5 mb-lg-0 ">
+                        <h1 class=" ls-tight white">
+                            {{'The Best Pizzeria' | translate}} <br />
+                            <span class="font-poppins">{{'in town' | translate}}</span>
+                        </h1>
+                        <div class="card bgCard">
+                            <div class="card-body py-5 px-md-5">
+                                <form [formGroup]="signupForm" (ngSubmit)="create(signupForm.value)">
+                                    <div class="mb-4">
+                                        <h3 class="font-poppins">{{'Sign Up' | translate}}</h3>
+                                    </div>
+                                    <div class="form-outline mb-4">
+                                        <input type="text" id="username" class="form-control"
+                                            placeholder="{{'Username' | translate}}" formControlName="username">
+                                        <div *ngIf="usernameExistsError" class="text-danger">
+                                            <span>{{"Username already exists." | translate}}</span>
+                                        </div>
+                                        <div *ngIf="signupForm.get('username')?.touched && signupForm.get('username')?.invalid"
+                                            class="text-danger">
+                                            <span *ngIf="signupForm.get('username')?.errors?.required">{{'Username is
+                                                required.' | translate}}</span>
+                                            <span *ngIf="signupForm.get('username')?.errors?.minlength">{{"Username must
+                                                be
+                                                at least 3 characters
+                                                long." | translate}}</span>
+                                            <span *ngIf="signupForm.get('username')?.errors?.maxlength">{{"Username
+                                                cannot
+                                                exceed 35
+                                                characters." | translate}}</span>
+                                            <span *ngIf="signupForm.get('username')?.errors?.pattern">{{"Username should
+                                                contain only
+                                                letters." | translate}}</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-outline mb-4">
+                                        <input type="text" id="fullName" class="form-control"
+                                            placeholder="{{'Full Name' | translate}}" formControlName="name">
+                                        <div *ngIf="signupForm.get('name')?.touched && signupForm.get('name')?.invalid"
+                                            class="text-danger">
+                                            <span *ngIf="signupForm.get('name')?.errors?.required">{{"Full Name is
+                                                required." | translate}}</span>
+                                            <span *ngIf="signupForm.get('name')?.errors?.minlength">{{"Full Name must be
+                                                at
+                                                least 5 characters
+                                                long." | translate}}</span>
+                                            <span *ngIf="signupForm.get('name')?.errors?.maxlength">{{"Full Name cannot
+                                                exceed 35
+                                                characters." | translate}}</span>
+                                            <span *ngIf="signupForm.get('name')?.errors?.pattern">{{"Full Name should
+                                                contain only
+                                                letters." | translate}}</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-outline mb-3 d-flex align-items-center">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="gender" id="maleGender"
+                                                value="male" formControlName="gender" checked>
+                                            <label class="form-check-label white" for="maleGender">
+                                                {{'Male' | translate}}
+                                            </label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="gender" id="femaleGender"
+                                                value="female" formControlName="gender">
+                                            <label class="form-check-label white" for="femaleGender">
+                                                {{'Female' | translate}}
+                                            </label>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-outline mb-4">
+                                        <input type="email" id="email" class="form-control"
+                                            placeholder="{{'Email' | translate}}" formControlName="email">
+                                        <div *ngIf="emailExistsError" class="text-danger">
+                                            <span>{{"Email already exists." | translate}}</span>
+                                        </div>
+                                        <div *ngIf="signupForm.get('email')?.touched && signupForm.get('email')?.invalid"
+                                            class="text-danger">
+                                            <span *ngIf="signupForm.get('email')?.errors?.required">{{"Email is
+                                                required." | translate}}</span>
+                                            <span *ngIf="signupForm.get('email')?.errors?.pattern">{{"Please enter a
+                                                valid
+                                                email
+                                                address." | translate}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-outline mb-4">
+                                        <div class="input-group">
+                                            <span class="input-group-text">
+                                                <img src="../../../../assets/flags/bg.png" alt="BG" width="18"
+                                                    height="16">
+                                                <span class="ml-1">+359</span>
+                                            </span>
+                                            <input type="tel" id="phone" class="form-control"
+                                                placeholder="{{'Phone Number' | translate}}" formControlName="phone">
+                                        </div>
+                                        <div *ngIf="signupForm.get('phone')?.touched && signupForm.get('phone')?.invalid"
+                                            class="text-danger">
+                                            <span *ngIf="signupForm.get('phone')?.errors?.required">{{"Phone Number is
+                                                required." | translate}}</span>
+                                            <span *ngIf="signupForm.get('phone')?.errors?.pattern">{{"Please enter a
+                                                valid
+                                                phone
+                                                number." | translate}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-outline mb-4">
+                                        <input type="password" id="password" class="form-control"
+                                            placeholder="{{'Password' | translate}}" formControlName="password"
+                                            #passwordInput>
+                                        <div *ngIf="signupForm.get('password')?.touched && signupForm.get('password')?.invalid"
+                                            class="text-danger">
+                                            <span *ngIf="signupForm.get('password')?.errors?.required">{{"Password is
+                                                required." | translate}}</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-outline mb-4">
+                                        <input type="password" id="repeatPassword" class="form-control"
+                                            placeholder="{{'Repeat Password'| translate}}"
+                                            formControlName="repeatPassword" #repeatPasswordInput required>
+                                        <div class="text-danger">
+                                            <span
+                                                *ngIf="passwordInput.value !== repeatPasswordInput.value && !signupForm.get('repeatPassword')?.errors?.required">
+                                                {{"Passwords should be identical." | translate}}</span>
+                                        </div>
+                                        <div class="text-danger"
+                                            *ngIf="signupForm.get('repeatPassword')?.touched && signupForm.get('repeatPassword')?.invalid">
+                                            <span *ngIf="signupForm.get('repeatPassword')?.errors?.required">
+                                                {{"Repeat Password is required." | translate}}</span>
+                                        </div>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-dark btn-block mb-4"
+                                        [disabled]="signupForm.invalid || passwordInput.value !== repeatPasswordInput.value">
+                                        {{"Create Account" | translate}}
+                                    </button>
+
+                                    <div class="text-center">
+                                        <h6 class="white">{{"Already a member?" | translate}} <a
+                                                [routerLink]="['/login']"
+                                                routerLinkActive="router-link-active"><b>{{"Login" | translate}}</b></a>
+                                        </h6>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

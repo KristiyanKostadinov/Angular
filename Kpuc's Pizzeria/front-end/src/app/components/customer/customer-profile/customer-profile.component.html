@@ -1,0 +1,309 @@
+<html>
+<header>
+    <div *ngIf="typeOfLogin === 'anonymous'">
+        <app-header></app-header>
+    </div>
+    <div *ngIf="typeOfLogin === 'customer'">
+        <app-customer-header></app-customer-header>
+    </div>
+    <div *ngIf="typeOfLogin === 'employee'">
+        <app-employee-header></app-employee-header>
+    </div>
+    <div *ngIf="typeOfLogin === 'admin'">
+        <app-admin-header></app-admin-header>
+    </div>
+</header>
+
+<body>
+    <div class="container topMargin">
+        <div>
+            <h1 style="text-align: center; padding-bottom: 40px; padding-top: 40px;" class="font-poppins">{{"Profile" |
+                translate}}</h1>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="profile-img" *ngIf="user.gender === 'female'">
+                    <img src="https://img.freepik.com/premium-vector/businesswoman-avatar-cartoon-character-profile_18591-50143.jpg?w=2000"
+                        alt="" />
+                </div>
+                <div class="profile-img" *ngIf="user.gender === 'male'">
+                    <img src="https://img.freepik.com/premium-vector/businessman-avatar-cartoon-character-profile_18591-50141.jpg?w=2000"
+                        alt="" />
+                </div>
+                <div class="profile-img" *ngIf="user.gender !== 'female' && user.gender !=='male'">
+                    <img src="https://img.freepik.com/premium-vector/businessman-avatar-cartoon-character-profile_18591-50141.jpg?w=2000"
+                        alt="" />
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="profile-head">
+                    <mat-tab-group>
+                        <mat-tab label="{{'About'|translate}}">
+                            <!-- <div class="col-md-12">
+                                <div class="profile-tab">
+                                    <div class="row mt-3">
+                                        <div class="col-md-4">
+                                            <label>User Id:</label>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <p>Kshiti123</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label>Name:</label>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <p>Kshiti Ghelani</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label>Email:</label>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <p>kshitighelani@gmail.com</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label>Phone:</label>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <p>123 454 7890</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label>Profession:</label>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <p>Web Developer and Designer</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+                            <table class="user-table">
+                                <!-- <tr>
+                                    <td class="user-label "><strong>{{"User Id" | translate}}:</strong></td>
+                                    <td class="user-info ">Kshiti123</td>
+                                </tr> -->
+                                <tr>
+                                    <td class="user-label "><strong>{{"Name" | translate}}:</strong></td>
+                                    <td class="user-info">{{user.name}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="user-label "><strong>{{"Email" | translate}}:</strong></td>
+                                    <td class="user-info">{{user.email}}</td>
+                                </tr>
+                                <tr *ngIf="typeOfLogin !== 'customer'">
+                                    <td class="user-label"><strong>{{"Position"
+                                            | translate}}:</strong></td>
+                                    <td class="user-info">{{user.position | translate}}</td>
+                                </tr>
+                                <tr *ngIf="typeOfLogin !== 'admin' && typeOfLogin !== 'employee'">
+                                    <td class="user-label "><strong>{{"Phone" | translate}}:</strong></td>
+                                    <td class="user-info">
+                                        <span>
+                                            <img src="../../../../assets/flags/bg.png" alt="BG" width="18" height="16">
+                                        </span> {{user.phone}}
+                                    </td>
+                                </tr>
+                                <!-- <tr>
+                                    <td class="user-label "><strong>{{"Profession" | translate}}:</strong></td>
+                                    <td class="user-info">Web Developer and Designer</td>
+                                </tr> -->
+                            </table>
+                        </mat-tab>
+                        <mat-tab label="{{'Order History'| translate}}">
+                            <div class="col-md-12">
+                                <div class="tab-content profile-tab" id="myTabContent">
+                                    <div>
+                                        <!-- <table class="mt-3">
+                                            <tr>
+                                                <th>ID</th>
+                                                <th class="wide">Ordered Items</th>
+                                                <th>Total</th>
+                                                <th>Status</th>
+                                                <th>Date</th>
+                                            </tr>
+                                            <tr>
+                                                <td>asd</td>
+                                                <td></td>
+                                                <td>2323</td>
+                                                <td>dd</td>
+                                                <td>ss</td>
+                                            </tr>
+                                        </table> -->
+                                        <div class="table-container">
+                                            <table class="responsive-table">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="text-center">{{ 'Date' | translate }}</th>
+                                                        <th class="text-center">{{ 'Ordered Items' | translate }}</th>
+                                                        <th class="text-center">{{ 'Total' | translate }}</th>
+                                                        <th class="text-center">{{ 'Status' | translate }}</th>
+                                                        <th class="text-center"></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr *ngFor="let orderData of userOrdersData | orderByDate">
+                                                        <td>{{ orderData.date }}</td>
+                                                        <td>{{ orderData.ordered_items | translate }}</td>
+                                                        <td>{{ orderData.price }}</td>
+                                                        <td>{{ orderData.status| translate }}</td>
+                                                        <td>
+                                                            <p (click)="openDialog(); reorder(orderData)"
+                                                                class="reorder-text">{{
+                                                                'Reorder' | translate }}</p>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </mat-tab>
+                    </mat-tab-group>
+                </div>
+            </div>
+            <!-- <div class="col-md-2 text-center mt-3">
+                <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"
+                    [routerLink]="['/edit-profile']" routerLinkActive="router-link-active" />
+            </div> -->
+        </div>
+        <div class="row">
+            <!-- <div class="col-md-4">
+                <div class="profile-work">
+                    <p>WORK LINK</p>
+                    <a href="">Website Link</a><br />
+                    <a href="">Bootsnipp Profile</a><br />
+                    <a href="">Bootply Profile</a>
+                    <p>SKILLS</p>
+                    <a href="">Web Designer</a><br />
+                    <a href="">Web Developer</a><br />
+                    <a href="">WordPress</a><br />
+                    <a href="">WooCommerce</a><br />
+                    <a href="">PHP, .Net</a><br />
+                </div>
+            </div> -->
+            <div class="col-md-8">
+                <div class="tab-content profile-tab" id="myTabContent">
+                    <!-- <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab"
+                        *ngIf="selectedTab === 0">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>User Id</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>Kshiti123</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Name</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>Kshiti Ghelani</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Email</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>kshitighelani@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Phone</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>123 456 7890</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Profession</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>Web Developer and Designer</p>
+                            </div>
+                        </div>
+                    </div> -->
+                    <!-- <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab"
+                        *ngIf="selectedTab === 1 ">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Experience</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>Expert</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Hourly Rate</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>10$/hr</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Total Projects</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>230</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>English Level</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>Expert</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Availability</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>6 months</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label>Your Bio</label><br />
+                                <p>Your detail description</p>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<footer>
+    <div class="scrolltop float-right">
+        <i class="fa fa-arrow-up" onclick="topFunction()" id="mybtn"></i>
+    </div>
+
+    <div id="s5">
+        <div class="container text-center">
+            <h1 style="text-align: center; padding-top: 50px;" class="mb-4 display-4 pulsate">{{'Contact Us' |
+                translate}}
+            </h1>
+            <p class="lead">{{'Address' | translate}}: {{companyInfo?.address}}</p>
+            <p class="lead">{{'Phone' | translate}} : {{companyInfo?.phone}}</p>
+            <p class="lead">{{'Email' | translate}} : {{companyInfo?.email}}</p>
+            <a class="btn btn-dark btn-lg mt-3" [routerLink]="['/review']" routerLinkActive="router-link-active">{{'Leave a Review' | translate}}</a>
+        </div>
+    </div>
+</footer>
+
+</html>

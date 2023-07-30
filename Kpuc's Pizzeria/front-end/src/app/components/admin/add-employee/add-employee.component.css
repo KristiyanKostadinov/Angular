@@ -1,0 +1,18 @@
+.font-poppins {
+    font-family: 'Concert One', sans-serif;
+    color: #2196f3;
+}
+
+.font-poppins:hover {
+    color: #0d47a1;
+}
+
+.center {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+
+.topMargin {
+    margin-top: 100px;
+}

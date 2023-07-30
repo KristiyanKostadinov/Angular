@@ -1,0 +1,92 @@
+<html>
+
+<header>
+  <div *ngIf="typeOfLogin === 'anonymous'">
+      <app-header></app-header>
+  </div>
+  <div *ngIf="typeOfLogin === 'customer'">
+      <app-customer-header></app-customer-header>
+  </div>
+  <div *ngIf="typeOfLogin === 'employee'">
+      <app-employee-header></app-employee-header>
+  </div>
+  <div *ngIf="typeOfLogin === 'admin'">
+      <app-admin-header></app-admin-header>
+  </div>
+</header>
+
+<body>
+  <section>
+    <div class="container" style="margin-bottom: 50px;">
+      <h1 style="text-align: center; padding-top: 50px; padding-bottom: 50px;"
+        class="animated zoomIn  infinite font-poppins">Special Offers</h1>
+      <div class="row">
+        <div class="col-md-4 col-lg-4 ">
+          <div class="card text-center" style="height: auto;">
+            <div class="card-header">
+              <h4>Wednesday</h4>
+            </div>
+            <img src=" ../../../assets/pic/30.jpg" style="height: 400px;" class="img-fluid">
+            <div class="card-body">
+              <p class="card-text font-poppins">Get Discount up to 15%!!!!</p>
+            </div>
+            <div class="card-footer">
+              <button class="btn btn-success">
+                Purchase
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-lg-4">
+          <div class="card text-center">
+            <div class="card-header">
+              <h4>Saturday</h4>
+            </div>
+            <img src=" ../../../assets/pic/14.jpg" style="height: 400px;" class="img-fluid">
+            <div class="card-body">
+              <p class="card-text font-poppins">Get Discount up to 25%!!!!</p>
+            </div>
+            <div class="card-footer">
+              <button class="btn btn-success">
+                Purchase
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-lg-4">
+          <div class="card text-center">
+            <div class="card-header">
+              <h4>Sunday</h4>
+            </div>
+            <img src=" ../../../assets/pic/9.jpg" style="height: 400px;" class="img-fluid">
+            <div class="card-body">
+              <p class="card-text font-poppins">Get Discount up to 50%!!!!</p>
+            </div>
+            <div class="card-footer">
+              <button class="btn btn-success">
+                Purchase
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+
+</body>
+<!-- <footer>
+  <div class="scrolltop float-right">
+    <i class="fa fa-arrow-up" onclick="topFunction()" id="mybtn"></i>
+  </div>
+  <div id="s5">
+    <h1 style="text-align: center; padding-top: 100px;" class="display-2 pulsate">{{'slice to meet you' | translate}}</h1>
+  </div>
+</footer> -->
+
+
+</html>

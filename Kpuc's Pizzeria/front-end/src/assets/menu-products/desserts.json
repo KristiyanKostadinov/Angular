@@ -1,0 +1,65 @@
+[
+  {
+    "name": "Classic chocolate mousse",
+    "image": "mousse.jpg",
+    "description": "Chocolate mousse, savoury or sweet dish with the consistency of a dense foam, composed of a puréed chief ingredient mixed with stiffly beaten egg whites, whipped cream, or both.",
+    "price": 9.99,
+    "quantity": 1
+  },
+  {
+    "name": "Baked plums with mascarpone",
+    "image": "mascarpone.jpg",
+    "description": "A stylish dessert that lets the juicy plums steal the show. This simple recipe pairs the plums with crunchy chopped pistachios and creamy mascarpone for an ideal last minute dish when in need of a sweet treat.",
+    "price": 8.99,
+    "quantity": 1
+  },
+  {
+    "name": "Lemon meringue brûlée tart",
+    "image": "brule.jpg",
+    "description": "Delectable dessert that combines the tangy sweetness of lemon curd with the creamy richness of a custard filling, all nestled in a crisp, buttery tart shell. The tart is topped with a fluffy layer of torched meringue, adding a deliciously light and airy texture to each bite.",
+    "price": 10.99,
+    "quantity": 1
+  },
+  {
+    "name": "Classic crème caramel",
+    "image": "caramel.jpg",
+    "description": "Traditional French dessert that is renowned for its silky smooth texture and rich, custardy flavor. This delectable treat is made by gently cooking a mixture of cream, milk, sugar, and vanilla until it thickens and coats the back of a spoon. This mixture is then poured into a baking dish, and eggs are added to create a custard base.",
+    "price": 11.99,
+    "quantity": 1
+  },
+  {
+    "name": "Blueberry muffin cobbler",
+    "image": "muffin.jpg",
+    "description": "Delightful twist on the classic American dessert. It combines the best of both worlds - the fluffy texture and buttery flavor of a blueberry muffin with the sweet and crumbly topping of a cobbler.",
+    "price": 9.99,
+    "quantity": 1
+  },
+  {
+    "name": "Nectarine and basil galette",
+    "image": "nectarine.jpg",
+    "description": "Rustic, free-form tart that showcases the bright and juicy flavors of nectarines paired with the herbaceous notes of fresh basil.",
+    "price": 13.99,
+    "quantity": 1
+  },
+  {
+    "name": "Frozen strawberry trifle",
+    "image": "trifle.jpg",
+    "description": "Refreshing and indulgent dessert that is perfect for hot summer days. Layers of fluffy angel food cake, creamy whipped cream, and sweetened strawberries are combined to create a delicious and visually stunning dessert that is sure to impress.",
+    "price": 10.99,
+    "quantity": 1
+  },
+  {
+    "name": "Chocolate pudding",
+    "image": "pudding.jpg",
+    "description": "Rich and creamy dessert that is loved by both kids and adults alike. It is made with simple ingredients including cocoa powder, sugar, cornstarch, milk, and vanilla extract.",
+    "price": 10.99,
+    "quantity": 1
+  },
+  {
+    "name": "No-bake salted caramel tart",
+    "image": "no-bake.jpg",
+    "description": "Delicious and indulgent dessert that is perfect for those who want to satisfy their sweet tooth without turning on the oven. It features a buttery graham cracker crust filled with a luscious and silky salted caramel filling, topped with a drizzle of more caramel and a sprinkle of sea salt.",
+    "price": 11.99,
+    "quantity": 1
+  }
+]

@@ -1,0 +1,121 @@
+<html>
+<header>
+  <div *ngIf="typeOfLogin === 'anonymous'">
+    <app-header></app-header>
+  </div>
+  <div *ngIf="typeOfLogin === 'customer'">
+    <app-customer-header></app-customer-header>
+  </div>
+  <div *ngIf="typeOfLogin === 'employee'">
+    <app-employee-header></app-employee-header>
+  </div>
+  <div *ngIf="typeOfLogin === 'admin'">
+    <app-admin-header></app-admin-header>
+  </div>
+</header>
+
+<body class="topMargin">
+  <div>
+    <div class="container">
+      <div class="text-center">
+        <div>
+          <h1 style="text-align: center; padding-top: 40px; padding-bottom: 40px;"
+            class="animated pulse infinite font-poppins">{{"About Us" | translate}}</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="container ">
+      <div class="row align-items-center mt-4">
+        <div class="col-lg-6">
+          <i class="fa fa-cutlery fa-2x mb-3 text-primary"></i>
+          <h2 class="font-weight-light">{{"Our Passion for Pizza" | translate}}</h2>
+          <p class="font-italic text-muted mb-4">{{"At our pizzeria, we have a deep-rooted passion for pizza. We believe
+            that pizza is more than just a food; it is an experience that brings people together. Our dedicated team of
+            pizzaiolos takes pride in crafting the perfect pizza using the finest ingredients and traditional
+            techniques. From hand-tossed dough to the rich flavors of our signature sauce, every bite is a celebration
+            of our love for pizza. We strive to create an inviting atmosphere where our customers can enjoy delicious
+            pizza with family and friends." | translate}}</p>
+        </div>
+        <div class="col-lg-5 px-5 mx-auto">
+          <img src="https://thumbs.dreamstime.com/b/cartoon-pizza-giving-thumb-up-illustration-55840120.jpg" alt=""
+            class="img-fluid mb-4 mb-lg-0">
+        </div>
+      </div>
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <i class="fa fa-heart fa-2x mb-3 text-primary"></i>
+          <h2 class="font-weight-light">{{"Quality and Freshness" | translate}}</h2>
+          <p class="font-italic text-muted mb-4">{{"We are committed to delivering the highest quality and freshness in
+            every pizza we serve. We carefully select the finest ingredients, sourcing locally grown produce and premium
+            meats. Our dough is made fresh daily, allowing it to rise naturally and develop its distinctive flavor. Each
+            pizza is handcrafted with attention to detail, ensuring a perfect balance of flavors and textures. We
+            believe that great pizza starts with great ingredients, and our commitment to quality shines through in
+            every slice." | translate}}</p>
+        </div>
+        <div class="col-lg-5 px-5 mx-auto">
+          <img src="https://danielelizalde.com/wp-content/uploads/2015/01/quality.jpg" alt=""
+            class="img-fluid mb-4 mb-lg-0">
+        </div>
+      </div>
+      <div class="row align-items-center mb-5">
+        <div class="col-lg-6 order-1 order-lg-1">
+          <i class="fa fa-bar-chart fa-2x mb-3 text-primary"></i>
+          <h2 class="font-weight-light">{{"History of Pizza"| translate}}</h2>
+          <p class="font-italic text-muted mb-4">{{"The history of pizza begins in antiquity, as various ancient
+            cultures
+            produced basic flatbreads with several toppings. A precursor of pizza was probably the focaccia, a flatbread
+            known to the Romans as panis focacius, to which toppings were then added. Modern pizza evolved from similar
+            flatbread dishes in Naples, Italy, in the 18th or early 19th century."| translate}}</p>
+          <a href="https://en.wikipedia.org/wiki/History_of_pizza"
+            class="btn btn-light px-5 rounded-pill shadow-sm">{{"Learn More" | translate}}</a>
+        </div>
+        <div class="col-lg-5 px-5 mx-auto order-2 order-lg-2">
+          <img
+            src="https://dwgyu36up6iuz.cloudfront.net/heru80fdn/image/upload/c_fill,d_placeholder_epicurious.png,fl_progressive,g_face,h_1080,q_80,w_1920/v1473447743/epicurious_the-secret-history-of-pizza.jpg"
+            alt="" class="img-fluid mb-4 mb-lg-0">
+        </div>
+      </div>
+      <div class="row align-items-center">
+        <div class="col-lg-6 mb-5">
+          <i class="fa fa-leaf fa-2x mb-3 text-primary"></i>
+          <h2 class="font-weight-light">{{"Pizza Effect"| translate}}</h2>
+          <p class="font-italic text-muted mb-4">{{"The Pizza Effect is the tendency for cultures to influence each
+            other
+            in a cycle. The term is an analogy of the spread of pizza from Italy to America. American pizza quickly
+            adapted to local tastes and adopted different traditions in cities such as New York, Chicago, and Detroit.
+            Over time, American-style pizza became well-known worldwide, including in Italy, where it is offered
+            alongside traditional Italian pizza varieties."| translate}}</p>
+          <a href="https://en.wikipedia.org/wiki/Pizza_effect"
+            class="btn btn-light px-5 rounded-pill shadow-sm">{{"Learn
+            More" | translate}}</a>
+        </div>
+        <div class="col-lg-5 px-5 mx-auto">
+          <img src="../../../assets/about-us/pizza-effect.png" alt="" class="img-fluid mb-4 mb-lg-0">
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
+<footer>
+  <div class="scrolltop float-right">
+    <i class="fa fa-arrow-up" onclick="topFunction()" id="mybtn"></i>
+  </div>
+
+  <div id="s5">
+    <div class="container text-center">
+      <h1 style="text-align: center; padding-top: 50px;" class="mb-4 display-4 pulsate">{{'Contact Us' |
+        translate}}
+      </h1>
+      <p class="lead">{{'Address' | translate}}: {{companyInfo?.address}}</p>
+      <p class="lead">{{'Phone' | translate}} : {{companyInfo?.phone}}</p>
+      <p class="lead">{{'Email' | translate}} : {{companyInfo?.email}}</p>
+      <a class="btn btn-dark btn-lg mt-3" [routerLink]="['/review']" routerLinkActive="router-link-active">{{'Leave a
+        Review' | translate}}</a>
+    </div>
+  </div>
+</footer>
+
+</html>
