@@ -1,1 +1,8 @@
-<p>game works!</p>
+<div class="center-container">
+    <h1 class="mb-3">Pacman</h1>
+    <div class="game-container">
+        <div class="background"></div>
+        <div class="pacman" [style.left.px]="pacmanPosition.x" [style.top.px]="pacmanPosition.y"></div>
+        <div class="mouth" [style.left.px]="pacmanPosition.x" [style.top.px]="pacmanPosition.y"></div>
+    </div>
+</div>
