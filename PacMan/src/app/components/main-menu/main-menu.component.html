@@ -1,10 +1,16 @@
-<div class="center-container">
-    <h1 class="mb-3">Main Menu</h1>
-    <button (click)="startGame()" class="btn btn-primary mb-4">Start</button>
-    <h2>Leaderboard</h2>
-    <ul>
+<div class="center-container txtColor">
+    <div class="menu-header">
+        <h1 class="mb-3 display-1">Main Menu</h1>
+    </div>
+    <div (click)="toggleVolume()" class="volume-icons mb-3">
+        <i *ngIf="!isVolumeMuted" class='fas fa-volume-up'></i>
+        <i *ngIf="isVolumeMuted" class='fas fa-volume-mute' style='color: red'></i>
+    </div>
+    <button (click)="startGame()" class="btn btn-dark mb-4">Start Game</button>
+    <h3>Leaderboard</h3>
+    <ol>
         <li *ngFor="let user of top_users">
             {{ user.username }} - {{ user.score }}
         </li>
-    </ul>
+    </ol>
 </div>

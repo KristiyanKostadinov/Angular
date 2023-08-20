@@ -14,4 +14,9 @@ export class UsersService {
   getTopTen() {
     return this.http.get<UserModel[]>(Firebase_API);
   }
+
+  addNewUser(username: string, score: number) {
+    const newUser: UserModel = { username, score };
+    return this.http.post<UserModel>(Firebase_API, newUser);
+  }
 }

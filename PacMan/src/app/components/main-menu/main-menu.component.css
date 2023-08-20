@@ -4,4 +4,28 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background: url("https://wallpaperaccess.com/full/699550.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.txtColor {
+    color: whitesmoke;
+}
+
+.menu-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.volume-icons {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.volume-icons i {
+    font-size: 24px;
 }

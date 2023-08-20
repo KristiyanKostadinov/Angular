@@ -1,8 +1,39 @@
 <div class="center-container">
-    <h1 class="mb-3">Pacman</h1>
-    <div class="game-container">
+    <div class="game-container" *ngIf="!isGameOver">
         <div class="background"></div>
-        <div class="pacman" [style.left.px]="pacmanPosition.x" [style.top.px]="pacmanPosition.y"></div>
-        <div class="mouth" [style.left.px]="pacmanPosition.x" [style.top.px]="pacmanPosition.y"></div>
+        <div class="pacmanArrowRight" *ngIf="pacman_Arrow_Right" [style.left.px]="pacmanPosition.x"
+            [style.top.px]="pacmanPosition.y"></div>
+        <div class="pacmanArrowLeft" *ngIf="pacman_Arrow_Left" [style.left.px]="pacmanPosition.x"
+            [style.top.px]="pacmanPosition.y"></div>
+        <div class="pacmanArrowUp" *ngIf="pacman_Arrow_Up" [style.left.px]="pacmanPosition.x"
+            [style.top.px]="pacmanPosition.y"></div>
+        <div class="pacmanArrowDown" *ngIf="pacman_Arrow_Down" [style.left.px]="pacmanPosition.x"
+            [style.top.px]="pacmanPosition.y"></div>
+        <div class="redEnemy" [style.left.px]="redEnemyPosition.x" [style.top.px]="redEnemyPosition.y"></div>
+        <div class="orangeEnemy" [style.left.px]="orangeEnemyPosition.x" [style.top.px]="orangeEnemyPosition.y">
+        </div>
+        <div class="cyanEnemy" [style.left.px]="cyanEnemyPosition.x" [style.top.px]="cyanEnemyPosition.y"></div>
+        <div class="pinkEnemy" [style.left.px]="pinkEnemyPosition.x" [style.top.px]="pinkEnemyPosition.y"></div>
+        <div class="point"></div>
+        <div class="point2"></div>
+        <div class="point3"></div>
+        <div class="point4"></div>
+        <div class="point5"></div>
+        <div class="point6"></div>
+        <div class="point7"></div>
+        <div class="point8"></div>
+        <div class="point9"></div>
+        <div class="cherry"></div>
+    </div>
+    <div *ngIf="isGameOver" class="game-over-screen">
+        <h1 class="text-center text-danger display-1 mb-3">Game Over</h1>
+        <p class="text-center txtColor">You were caught by an enemy!</p>
+        <form [formGroup]="newUserForm" (ngSubmit)="saveAndGoToMenu()">
+            <input type="text" id="username" placeholder="Username" class="form-control mb-3"
+                formControlName="username">
+            <div class="text-center">
+                <button type="submit" class="btn btn-dark" [disabled]="newUserForm.invalid">Continue</button>
+            </div>
+        </form>
     </div>
 </div>
