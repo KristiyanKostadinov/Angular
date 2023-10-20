@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-5">
+            <div class="image-container">
+                <img src="https://www.seekpng.com/png/full/44-446333_hello-clipart-wave-bye-person-waving-goodbye-clipart.png"
+                    class="img-fluid" alt="Welcome Image">
+            </div>
+        </div>
+        <div class="col-md-5 mt-5">
+            <h1 class="text-center display-1">Login</h1>
+            <form [formGroup]="loginForm" (ngSubmit)="login()" class="mt-5">
+                <input type="text" formControlName="loginUsername" class="form-control" placeholder="Username"
+                    id="username" style="width: 400px;" />
+                <div class="text-danger" *ngIf=" loginForm.get('loginUsername')!.touched && !loginForm.get('loginUsername')!.value">
+                    Username is required.
+                </div>
+                <input type="password" formControlName="loginPassword" class="form-control mt-3" placeholder="Password"
+                    id="password" style="width: 400px;" />
+                <div class="text-danger" *ngIf="loginForm.get('loginPassword')!.touched && !loginForm.get('loginPassword')!.value">
+                    Password is required.
+                </div>
+                <input type="checkbox" formControlName="robot" class="mt-3" />
+                I am not a robot
+                <div class="text-danger" *ngIf=" loginForm.get('robot')!.touched && !loginForm.get('robot')!.value">
+                    You must confirm that you are not a robot.
+                </div>
+                <div class="row mt-3">
+                    <div class="col-auto">
+                        <button class="btn btn-dark" type="submit" [disabled]="!loginForm.valid">Submit</button>
+                    </div>
+                    <div class="col-auto">
+                        <button class="btn btn-dark" (click)="back()">Back</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

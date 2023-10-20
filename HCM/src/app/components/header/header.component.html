@@ -1,0 +1,18 @@
+<div>
+    <nav>
+        <div class="menu-icon" (click)="toggleMenu()" *ngIf='!isMenuOpen'>☰</div>
+        <ul [ngClass]="{'show': isMenuOpen}">
+            <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
+            <li *ngIf="!loggedInUser"><a routerLink="/login" routerLinkActive="active">Login</a></li>
+            <li *ngIf="loggedInUser && (loggedInUser.type === 'employee' || loggedInUser.type === 'manager')"><a
+                    routerLink="/profile" routerLinkActive="active">
+                    <i class="fa fa-user" title="My Profile" style="font-size: 24px;"></i>
+                </a></li>
+            <li *ngIf="loggedInUser && loggedInUser.type === 'manager'"><a routerLink="/employees"
+                    routerLinkActive="active">Employees</a></li>
+            <li *ngIf="loggedInUser"><a routerLink="/home" routerLinkActive="active" (click)="logout()">
+                    <i class="fa fa-sign-out" title="Logout" style="font-size: 24px;"></i>
+                </a></li>
+        </ul>
+    </nav>
+</div>

@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+body {
+    align-items: center;
+    justify-content: center;
+    background-image: url('https://c4.wallpaperflare.com/wallpaper/931/991/723/texture-wood-monochrome-gray-wallpaper-preview.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+    background-attachment: fixed; 
+}

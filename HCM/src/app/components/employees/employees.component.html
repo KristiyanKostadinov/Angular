@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="text-center mt-5">
+        <h1>Employees</h1>
+    </div>
+    <div class="icon-container">
+        <a routerLink="/add-employee">
+            <i class="fa fa-plus fa-2x" title="Add Employee" style="color: green; cursor: pointer;"></i>
+        </a>
+    </div>
+    <div class="text-center">
+        <div class="table-container">
+            <div class="table-scroll">
+                <table class="table table-dark">
+                    <thead>
+                        <tr class="h5">
+                            <th>Name</th>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Gender</th>
+                            <th>Age</th>
+                            <th>City</th>
+                            <th>Salary</th>
+                            <th>Department</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let employee of employees">
+                            <td>{{employee.first_name}} {{employee.last_name}} </td>
+                            <td>{{employee.username}}</td>
+                            <td>{{employee.email}}</td>
+                            <td>{{employee.gender}}</td>
+                            <td>{{employee.age}}</td>
+                            <td>{{employee.city}}</td>
+                            <td>{{employee.salary}} lv.</td>
+                            <td>{{employee.department}}</td>
+                            <td class="actionsCol align-middle">
+                                <a [routerLink]="['/edit-employee', employee.id]" routerLinkActive="active">
+                                    <i class="fa fa-edit fa-2x me-2" title="Edit Employee"
+                                        style="color: yellow; cursor: pointer;"></i>
+                                </a>
+                                <i class="fa fa-trash fa-2x" title="Delete Employee"
+                                    style="color: red; cursor: pointer;" (click)="deleteEmployee(employee.id)"></i>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+.icon-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+    margin-right: 50px;
+}
+
+.table-scroll {
+    max-height: 500px; 
+    overflow-x: auto;
+    overflow-y: auto;
+}

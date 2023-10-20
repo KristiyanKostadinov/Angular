@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-5">
+            <div class="image-container">
+                <img src="https://www.seekpng.com/png/full/44-446333_hello-clipart-wave-bye-person-waving-goodbye-clipart.png"
+                    class="img-fluid" alt="Welcome Image">
+            </div>
+        </div>
+        <div class="col-md-5 mt-5">
+            <h1 class="display-1 text-center" *ngIf="!loggedInUser">Welcome</h1>
+            <div *ngIf="loggedInUser">
+                <h1 class="display-2 text-center mb-3">Welcome to </h1>
+                <h1 class="text-center">Human Capital Management</h1>
+            </div>
+            <p class="text-center mt-5" *ngIf="!loggedInUser">This is a cutting-edge Human Capital Management App, designed to streamline
+                workforce management, optimize employee performance, and enhance HR processes. It offers a comprehensive
+                suite of tools and features to empower organizations in managing their most valuable asset – their
+                people. From talent acquisition to performance evaluation and everything in between, our Human Capital
+                Management App is your solution for efficient and strategic human resource management.</p>
+        </div>
+    </div>
+</div>
