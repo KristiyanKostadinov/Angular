@@ -1,0 +1,70 @@
+<div>
+    <div class="text-center center mb-5">
+        <h1 style="font-weight: bold;">Add New City</h1>
+    </div>
+    <div>
+        <form [formGroup]="cityForm" (ngSubmit)="addNewCity()">
+            <div class=" mb-3">
+                <div class="col-12">
+                    <input type="text" formControlName="name" class="form-control field-width mx-auto "
+                        placeholder="Name">
+                    <div *ngIf="cityForm.get('name')!.hasError('required') && cityForm.get('name')!.touched"
+                        class="text-danger text-center">
+                        Name is required.
+                    </div>
+                    <div *ngIf="cityForm.get('name')!.hasError('minlength') && cityForm.get('name')!.touched"
+                        class="text-danger text-center">
+                        Name must be at least 3 characters long.
+                    </div>
+                    <div *ngIf="cityForm.get('name')!.hasError('maxlength') && cityForm.get('name')!.touched"
+                        class="text-danger text-center">
+                        Name cannot exceed 50 characters.
+                    </div>
+                    <div *ngIf="cityForm.get('name')!.hasError('pattern') && cityForm.get('name')!.touched"
+                        class="text-danger text-center">
+                        Only letters and spaces are allowed for the name.
+                    </div>
+                </div>
+            </div>
+
+            <div class=" mb-3">
+                <div class="col-12">
+                    <input type="number" formControlName="area" class="form-control field-width mx-auto"
+                        placeholder="Area">
+                    <div *ngIf="cityForm.get('area')!.hasError('required') && cityForm.get('area')!.touched"
+                        class="text-danger text-center">
+                        Area is required.
+                    </div>
+                    <div *ngIf="cityForm.get('area')!.hasError('min') && cityForm.get('area')!.touched"
+                        class="text-danger text-center">
+                        Area must be at least 1.
+                    </div>
+                    <div *ngIf="cityForm.get('area')!.hasError('max') && cityForm.get('area')!.touched"
+                        class="text-danger text-center">
+                        Area cannot exceed 10,000.
+                    </div>
+                </div>
+            </div>
+
+            <div class=" mb-3">
+                <div class="col-12">
+                    <input type="number" formControlName="population" class="form-control field-width mx-auto"
+                        placeholder="Population">
+                    <div *ngIf="cityForm.get('population')!.hasError('required') && cityForm.get('population')!.touched"
+                        class="text-danger text-center">
+                        Population is required.
+                    </div>
+                    <div *ngIf="cityForm.get('population')!.hasError('min') && cityForm.get('population')!.touched"
+                        class="text-danger text-center">
+                        Population must be at least 1.
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-4">
+                <button type="submit" class="btn btn-primary" [disabled]="cityForm.invalid"> Add</button>
+                <button type="button" class="btn btn-dark btnMargin" (click)="backBtn()"> Back</button>
+            </div>
+        </form>
+    </div>
+</div>

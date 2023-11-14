@@ -1,0 +1,42 @@
+<div>
+    <div class="text-center mb-5 mt-5">
+        <h1 style="font-weight: bold;">Cities</h1>
+    </div>
+    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+        <div style="flex-grow: 1;">
+            <input class="form-control search-width" placeholder="Search by name" type="text" id="searchInput"
+                [(ngModel)]="searchTerm" />
+        </div>
+        <div>
+            <i class="fa fa-plus plus-icon" (click)="navigateToAddCity()"></i>
+        </div>
+    </div>
+    <div class="table-container">
+        <table class="table text-center">
+            <tr style="position: sticky; top: 0; background-color: #6fd6ff; z-index: 1;">
+                <th>Name <i class="fa fa-arrow-up arrow-icon" (click)="sortByName('asc')"></i> <i
+                        class="fa fa-arrow-down arrow-icon" (click)="sortByName('desc')"></i></th>
+                <th>Area <i class="fa fa-arrow-up arrow-icon" (click)="sortByArea('asc')"></i> <i
+                        class="fa fa-arrow-down arrow-icon" (click)="sortByArea('desc')"></i></th>
+                <th>Population <i class="fa fa-arrow-up arrow-icon" (click)="sortByPopulation('asc')"></i> <i
+                        class="fa fa-arrow-down arrow-icon" (click)="sortByPopulation('desc')"></i>
+                </th>
+                <th>Density</th>
+            </tr>
+            <tbody>
+                <tr *ngFor="let city of filterCities()">
+                    <td [style.background-color]="city.population > 1000000 ? '#6fd6ff' : 'transparent'">
+                        {{city.name}}
+                    </td>
+                    <td [style.background-color]="city.population > 1000000 ? '#6fd6ff' : 'transparent'">{{city.area}}
+                    </td>
+                    <td [style.background-color]="city.population > 1000000 ? '#6fd6ff' : 'transparent'">
+                        {{city.population}}</td>
+                    <td [style.background-color]="city.population > 1000000 ? '#6fd6ff' : 'transparent'">
+                        {{city.density}} people per km²
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

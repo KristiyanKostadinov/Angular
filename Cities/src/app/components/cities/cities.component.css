@@ -1,0 +1,20 @@
+.table-container {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.arrow-icon {
+    background-color: transparent;
+}
+
+.plus-icon{
+    font-size: 30px;
+    margin-right: 100px;
+
+}
+
+.search-width {
+    margin-left: 100px;
+    margin-bottom: 10px;
+    width: 200px;
+}
