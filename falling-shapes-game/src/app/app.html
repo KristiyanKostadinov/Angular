@@ -1,0 +1,19 @@
+<main class="app">
+  <section class="stage" aria-label="Falling shapes">
+    <div #canvasHost class="canvas-host"></div>
+    <div class="hud" aria-live="polite">
+      <span>Shapes: <b>{{ shapeCount() }}</b></span>
+      <span class="hint">Tap the playfield to add one</span>
+    </div>
+  </section>
+
+  <section class="controls" aria-label="Shape controls">
+    <div class="control">
+      <div class="stepper" aria-label="Shapes per second">
+        <button type="button" aria-label="Fewer shapes per second" (click)="changeRate(-1)">−</button>
+        <button type="button" aria-label="More shapes per second" (click)="changeRate(1)">+</button>
+      </div>
+      <label>Shapes / second: <b>{{ spawnRate() }}</b></label>
+    </div>
+  </section>
+</main>
