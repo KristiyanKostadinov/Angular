@@ -1,4 +1,10 @@
-# FallingShapesGame
+## 🎮 Live Demo
+
+### Falling Shapes Game
+
+Play the game directly in your browser.
+
+[▶ Play Falling Shapes](https://kristiyankostadinov.github.io/Angular/)
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.2.3.
 
