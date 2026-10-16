@@ -1,0 +1,69 @@
+
+name: Deploy Falling Shapes Game
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'falling-shapes-game/**'
+      - '.github/workflows/deploy-game.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages-game
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: falling-shapes-game/package-lock.json
+
+      - name: Install dependencies
+        working-directory: falling-shapes-game
+        run: npm ci
+
+      - name: Build Angular game
+        working-directory: falling-shapes-game
+        run: npm run build -- --base-href=/Angular/falling-shapes-game/
+
+      - name: Find build output
+        shell: bash
+        run: |
+          INDEX_FILE=$(find falling-shapes-game/dist -type f -name index.html -print -quit)
+          if [ -z "$INDEX_FILE" ]; then
+            echo "Angular build did not produce index.html"
+            exit 1
+          fi
+          echo "PAGES_DIR=$(dirname "$INDEX_FILE")" >> "$GITHUB_ENV"
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload built game
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: ${{ env.PAGES_DIR }}
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
